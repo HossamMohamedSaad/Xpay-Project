@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\monthly_income_source;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,9 +18,28 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+        $this->call([
+            ClientSeeder::class,
+            PlansSeeder::class,
+            SubscribtionSeeder::class,
+            AccountSeeder::class,
+            IncomeSourceSeeder::class,
+            MonthlyIncomeSourceSeeder::class,
+            IncomeSeeder::class,
+            ExpenseCategorySeeder::class,
+            MonthlyExpenseCategorySeeder::class,
+            ExpensesSeeder::class,
+            MonthlyReportSeeder::class,
+            TransactionSeeder::class,
+
+            
+            
+
+
         ]);
     }
 }

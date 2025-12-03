@@ -32,6 +32,29 @@ Route::get('/dashboard', function () {
 });
 
 
+Route::prefix('admin/plan')
+    ->name('admin.plan.')
+    ->group(function () {
+
+        Route::get('/index', [\App\Http\Controllers\admin\PlanController::class, 'index'])->name('index');
+        Route::get('/add', [\App\Http\Controllers\admin\PlanController::class, 'add'])->name('add');
+        Route::put('/create', [\App\Http\Controllers\admin\PlanController::class, 'create'])->name('create');
+        Route::patch('/update', [\App\Http\Controllers\admin\PlanController::class, 'update'])->name('update');
+        Route::delete('/delete', [\App\Http\Controllers\admin\PlanController::class, 'destroy'])->name('destroy');
+    });
+Route::prefix('admin/client')
+    ->name('admin.client.')
+    ->group(function () {
+
+        Route::get('/index', [\App\Http\Controllers\admin\clientController::class, 'index'])->name('index');
+        Route::get('/show', [\App\Http\Controllers\admin\clientController::class, 'show'])->name('show');
+        Route::get('/add', [\App\Http\Controllers\admin\clientController::class, 'add'])->name('add');
+        Route::put('/create', [\App\Http\Controllers\admin\clientController::class, 'create'])->name('create');
+        Route::patch('/update', [\App\Http\Controllers\admin\clientController::class, 'update'])->name('update');
+        Route::delete('/delete', [\App\Http\Controllers\admin\clientController::class, 'destroy'])->name('destroy');
+    });
+
+
 
 
 

@@ -17,11 +17,17 @@
         <ul class="side-nav">
 
             <li class="side-nav-item">
+                <a href="{{ route('admin.plan.index') }}" class="side-nav-link">
+                    <span class="menu-icon"><i data-lucide="circle-gauge"></i></span>
+                    <span class="menu-text" data-lang="dashboard">Plans</span>
+                </a>
+            </li>
+            {{-- <li class="side-nav-item">
                 <a href="index.html" class="side-nav-link">
                     <span class="menu-icon"><i data-lucide="circle-gauge"></i></span>
                     <span class="menu-text" data-lang="dashboard">Dashboard</span>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="side-nav-item">
                 <a href="ton-ai.html" class="side-nav-link">
