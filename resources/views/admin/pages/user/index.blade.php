@@ -7,9 +7,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     @include('admin.main.header')
-    <title>Xpay | Plans Control</title>
+    <title>Xpay | user Control</title>
 </head>
 
 
@@ -32,34 +33,31 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
 
+                <div class="row justify-content-center py-5">
+                    <div class="col-xxl-5 col-xl-7 text-center">
+                        <a href="{{route('admin.user.add')}}" class="badge badge-default fw-normal shadow px-2 py-1 mb-2 fst-italic fs-xxs">
+                            <i data-lucide="table" class="fs-sm me-1"></i> Add Users
+                        </a>
+                        <h3 class="fw-bold">
+                            Users Section
+                        </h3>
 
+                        <p class="fs-md text-muted mb-0">You can add and edet and show your users here.</p>
+                    </div>
+                </div>
 
                 <!-- ============================================================== -->
                 <!-- Start Main Content -->
 
-               
-
-                <div class="row justify-content-center py-5">
-                    <div class="col-xxl-5 col-xl-7 text-center">
-                        <a href="{{route('admin.plan.add')}}" class="badge badge-default fw-normal shadow px-2 py-1 mb-2 fst-italic fs-xxs">
-                            <i data-lucide="table" class="fs-sm me-1"></i> Add plan
-                        </a>
-                        <h3 class="fw-bold">
-                            Plans Section
-                        </h3>
-
-                        <p class="fs-md text-muted mb-0">You can add and edit and show your plans here.</p>
-                    </div>
-                </div>
-
-
                 
+
+
 
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header justify-content-between">
-                                <h5 class="card-title"> Clients Table </h5>
+                                <h5 class="card-title"> Users Table </h5>
                             </div>
 
                             <div class="card-body">
@@ -68,39 +66,31 @@
                                         <thead class="fs-xs">
                                             <tr>
                                                 <th> Name</th>
-                                                <th>price</th>
-                                                <th>discount price</th>
-                                                <th>Discreption</th>
-                                                <th>duration months</th>
-                                                <th>Status</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($plans as $plan)
+                                            @foreach ($users as $user)
                                                 <tr>
-                                                    <td> {{ $plan->name }}</td>
-                                                    <td> {{ $plan->price }}</td>
-                                                    <td>{{ $plan->discount_price }}</td>
-                                                    <td>{{ $plan->description }}</td>
-                                                    <td>{{ $plan->duration }}</td>
-                                                    @if ($plan->is_visible == true) 
-                                                        <td>{{ 'visible' }}</td>
-                                                    @else
-                                                        <td>{{ "not visible" }}</td>                                        
-                                                    @endif
+                                                    <td> {{ $user->name }}</td>
+                                                    <td> {{ $user->email }}</td>
+                                                    <td>{{ $user->phone }}</td>                                    
+                                                    
                                                     
                                                     <td>
                                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                            data-bs-target="#edit-modal{{ $plan->id }}">Edit</button>
+                                                            data-bs-target="#edit-modal{{ $user->id }}">Edit</button>
                                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                            data-bs-target="#delete-modal{{ $plan->id }}">Delete</button>
-                                                        {{-- <a href="{{route('plan.show', $plan->id)}}" class="btn btn-success btn-sm"
-                                                            role="button" aria-pressed="true">Show</a> --}}
+                                                            data-bs-target="#delete-modal{{ $user->id }}">Delete</button>
+                                                        
+                                                        
                                                     </td>
                                                 </tr>
-                                            @include('admin.pages.plan.editmodal')
-                                            @include('admin.pages.plan.deletemodal') 
+                                                @include('admin.pages.user.editmodal')
+                                                @include('admin.pages.user.deletemodal')
+                                                
                                                 
                                             @endforeach
                                         </tbody>
@@ -110,21 +100,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <!-- ============================================================== -->
 
             </div>

@@ -1,4 +1,3 @@
-<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="admin dashboard template on Themeforest. Perfect for building CRM, CMS, project management tools, and custom web apps with clean UI, responsive design, and powerful features.">
@@ -19,4 +18,3 @@
 
     <script src="{{ asset('admin/assets/plugins/lucide/lucide.min.js') }}"></script>
 
-</head>

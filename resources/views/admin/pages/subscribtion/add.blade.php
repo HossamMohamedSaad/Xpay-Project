@@ -7,10 +7,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     @include('admin.main.header')
-    <title>Xpay | Add Plans</title>
+    <title>Xpay | Add Subscribtion</title>
 </head>
 
 
@@ -41,84 +40,73 @@
                 <!-- add_form -->
                 <br><br><br>
                 <br><br><br>
-                <h1>Add Plan</h1>
+                <h1>Add subscribtion to client</h1>
                 <br><br>
-                <form action="{{ route('admin.plan.create') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.subscribtion.create') }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="row">
                         <div class="col-md-8">
                             <div class="row g-lg-4 g-2">
                                 <div class="col-lg-4">
-                                    <label for="example-rounded" class="col-form-label"> Name</label>
+                                    <label for="example-rounded" class="col-form-label"> client</label>
                                 </div>
                                 <div class="col-lg-8">
-                                    <input type="text" id="example-rounded" class="form-control rounded-pill"
-                                        name="name" placeholder="Name">
+                                    <select id="example-rounded" class="form-select rounded-pill"  name="client">
+                                        @foreach ($clients as $client)
+                                            <option value="{{ $client->id }}" >{{ $client->name }}</option>                                        
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <br><br><br>
+                        
+                        
+                        
                         <div class="col-md-8">
 
 
                             <div class="row g-lg-4 g-2">
                                 <div class="col-lg-4">
-                                    <label for="example-rounded" class="col-form-label"> price</label>
+                                    <label for="example-rounded" class="col-form-label"> plan</label>
                                 </div>
                                 <div class="col-lg-8">
-                                    <input type="text" id="example-rounded" class="form-control rounded-pill"
-                                        name="price" placeholder="price ">
-                                </div>
-                            </div>
-
-                        </div>
-                        <br><br><br>
-                        <div class="col-md-8">
-
-
-                            <div class="row g-lg-4 g-2">
-                                <div class="col-lg-4">
-                                    <label for="example-rounded" class="col-form-label">discount price</label>
-                                </div>
-                                <div class="col-lg-8">
-                                    <input type="text" id="example-rounded" class="form-control rounded-pill"
-                                        name="discount_price" placeholder=" discount price">
+                                    <select id="example-rounded" class="form-select rounded-pill"  name="plan">
+                                        @foreach ($plans as $plan)
+                                            <option value="{{ $plan->id }}" >{{ $plan->name }}</option>                                        
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
                         </div>
                         <br><br><br>
                         <div class="col-md-8">
-
-
                             <div class="row g-lg-4 g-2">
                                 <div class="col-lg-4">
-                                    <label for="example-rounded" class="col-form-label"> description</label>
+                                    <label for="example-rounded" class="col-form-label"> price paid</label>
                                 </div>
                                 <div class="col-lg-8">
                                     <input type="text" id="example-rounded" class="form-control rounded-pill"
-                                        name="description" placeholder=" description">
+                                        name="price_paid" placeholder="  price paid set zero for free" value="{{ old('price_paid') }}">
                                 </div>
                             </div>
-
                         </div>
                         <br><br><br>
                         <div class="col-md-8">
-
-
                             <div class="row g-lg-4 g-2">
                                 <div class="col-lg-4">
-                                    <label for="example-rounded" class="col-form-label"> duration</label>
+                                    <label for="example-rounded" class="col-form-label"> Payment Method</label>
                                 </div>
                                 <div class="col-lg-8">
                                     <input type="text" id="example-rounded" class="form-control rounded-pill"
-                                        name="duration" placeholder=" duration">
+                                        name="payment_method" placeholder="  payment method " value="{{ old('payment_method') }}">
                                 </div>
                             </div>
-
                         </div>
                         <br><br><br>
+                        
                         <div class="col-md-8">
 
 
@@ -127,7 +115,7 @@
                                     <label for="example-rounded" class="col-form-label"> Active</label>
                                 </div>
                                 <div class="col-lg-8">
-                                    <input class="form-check-input" type="checkbox" id="is_visible" name="is_visible"  checked>
+                                    <input class="form-check-input" type="checkbox" id="is_active" name="is_active"  checked>
 
                                 </div>
                             </div>

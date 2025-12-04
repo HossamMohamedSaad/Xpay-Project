@@ -23,7 +23,7 @@ class ClientSeeder extends Seeder
                 'email'      => "client{$i}@example.com", // لازم تكون unique
                 'password'   => Hash::make('11223344'), // باسورد مشفّر
                 'phone'      => '010' . str_pad((string) $i, 8, '0', STR_PAD_LEFT),
-                'is_active'  => $i % 5 !== 0, // نخلي كل 5th واحد inactive كـ مثال
+                'is_blocked'  => $i % 5 == 1,  
                 'created_at' => now(),
                 'updated_at' => now(),
             ];

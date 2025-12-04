@@ -37,6 +37,8 @@ class clientController extends Controller
             'password' => 'required|string|min:6',
             'phone' => 'nullable|string|max:13',
             'plan' => 'required|exists:plans,id',
+            'price_paid' => 'required|integer',
+            'payment_method' => 'required|string|max:255',
         ],
             [
                 'name.required' => 'Plan name is required',
@@ -49,6 +51,11 @@ class clientController extends Controller
                 'phone.max' => 'Phone must not exceed 13 characters',
                 'plan.required' => 'Plan is required',
                 'plan.exists' => 'Selected plan does not exist',
+                'price_paid.required' => 'Price paid is required',
+                'price_paid.integer' => 'Price paid must be an integer',
+                'payment_method.required' => 'Payment method is required',
+                'payment_method.string' => 'Payment method must be a string',
+                'payment_method.max' => 'Payment method must not exceed 255 characters',
             ]
         );
 
@@ -62,7 +69,7 @@ class clientController extends Controller
             $client->email = $request->input('email');
             $client->password = Hash::make($request->input('password'));
             $client->phone = $request->input('phone');
-            $client->is_active = $request->has('is_active') ? 1 : 0;
+            $client->is_blocked = $request->has('is_blocked') ? 1 : 0;
             $client->save();
 
             $plan_id = $request->input('plan');
@@ -72,6 +79,8 @@ class clientController extends Controller
             $subscription = new subscribtion;
             $subscription->client_id = $client->id;
             $subscription->plan_id = $request->input('plan');
+            $subscription->price_paid = $request->input('price_paid');
+            $subscription->payment_method = $request->input('payment_method');
             $subscription->start_date = now();
             $subscription->end_date = now()->addmonths($plan_duration);
             $subscription->save();
@@ -91,6 +100,35 @@ class clientController extends Controller
      */
     public function update(Request $request)
     {
+        // return $request->all();
+        $validator = validator()->make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:clients,email,'.$request->id,
+            'phone' => 'nullable|string|max:13',
+            'plan' => 'required|exists:plans,id',
+            'price_paid' => 'required|integer',
+            'payment_method' => 'required|string|max:255',
+        ],
+            [
+                'name.required' => 'Plan name is required',
+                'email.required' => 'Email is required',
+                'email.email' => 'Email must be a valid email address',
+                'email.unique' => 'Email already exists',
+                'phone.string' => 'Phone must be a string',
+                'phone.max' => 'Phone must not exceed 13 characters',
+                'plan.required' => 'Plan is required',
+                'plan.exists' => 'Selected plan does not exist',
+                'price_paid.required' => 'Price paid is required',
+                'price_paid.integer' => 'Price paid must be an integer',
+                'payment_method.required' => 'Payment method is required',
+                'payment_method.string' => 'Payment method must be a string',
+                'payment_method.max' => 'Payment method must not exceed 255 characters',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first())->withInput();
+        }
 
         DB::beginTransaction();
         try {
@@ -99,18 +137,20 @@ class clientController extends Controller
             $client->email = $request->input('email');
             $client->password = Hash::make($request->input('password'));
             $client->phone = $request->input('phone');
-            $client->is_active = $request->has('is_active') ? 1 : 0;
+            $client->is_blocked = $request->has('is_blocked') ? 1 : 0;
             $client->save();
 
             $plan_id = $request->input('plan');
             $plan_duration = Plan::find($plan_id)->duration;
             
 
-            $subscription = subscribtion::where('client_id', $client->id)->first();
+            $subscription = subscribtion::where('client_id', $client->id)->get()->last();
             $subscription->client_id = $client->id;
             $subscription->plan_id = $request->input('plan');
             $subscription->start_date = now();
             $subscription->end_date = now()->addmonths($plan_duration);
+            $subscription->price_paid = $request->input('price_paid');
+            $subscription->payment_method = $request->input('payment_method');
             $subscription->save();
 
             DB::commit();

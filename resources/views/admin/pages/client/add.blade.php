@@ -7,9 +7,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-@include('admin.main.header')
-<title>Xpay | Add Clients</title>
+<head>
+    @include('admin.main.header')
+    <title>Xpay | Add Client</title>
+</head>
 
 
 <body>
@@ -120,6 +121,30 @@
 
                         </div>
                         <br><br><br>
+                        <div class="col-md-8">
+                            <div class="row g-lg-4 g-2">
+                                <div class="col-lg-4">
+                                    <label for="example-rounded" class="col-form-label"> price paid</label>
+                                </div>
+                                <div class="col-lg-8">
+                                    <input type="text" id="example-rounded" class="form-control rounded-pill"
+                                        name="price_paid" placeholder="  price paid set zero for free" value="{{ old('price_paid') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <div class="col-md-8">
+                            <div class="row g-lg-4 g-2">
+                                <div class="col-lg-4">
+                                    <label for="example-rounded" class="col-form-label"> Payment Method</label>
+                                </div>
+                                <div class="col-lg-8">
+                                    <input type="text" id="example-rounded" class="form-control rounded-pill"
+                                        name="payment_method" placeholder="  payment method " value="{{ old('payment_method') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <br><br><br>
                         
                         <div class="col-md-8">
 
@@ -129,7 +154,7 @@
                                     <label for="example-rounded" class="col-form-label"> Active</label>
                                 </div>
                                 <div class="col-lg-8">
-                                    <input class="form-check-input" type="checkbox" id="is_active" name="is_active"  checked>
+                                    <input class="form-check-input" type="checkbox" id="is_blocked" name="is_blocked"  checked>
 
                                 </div>
                             </div>

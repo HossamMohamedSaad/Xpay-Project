@@ -7,9 +7,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-@include('admin.main.header')
-<title>Xpay | Dashboard</title>
+<head>
+    @include('admin.main.header')
+    <title>Xpay | Dashboard</title>
+</head>
 
 
 <body>
@@ -30,7 +31,8 @@
             <!-- Start Main Content -->
             <!-- ============================================================== -->
 
-            @include('admin.main.main_content')
+            {{-- @include('admin.pages.dashboard.main_content') --}}
+            @include('admin.pages.dashboard.cards')
             <!-- ============================================================== -->
             <!-- End of Main Content -->
             <!-- ============================================================== -->

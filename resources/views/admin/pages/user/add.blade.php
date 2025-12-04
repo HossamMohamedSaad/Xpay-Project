@@ -7,10 +7,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     @include('admin.main.header')
-    <title>Xpay | Add Plans</title>
+    <title>Xpay | Add user</title>
 </head>
 
 
@@ -41,9 +40,9 @@
                 <!-- add_form -->
                 <br><br><br>
                 <br><br><br>
-                <h1>Add Plan</h1>
+                <h1>Add User</h1>
                 <br><br>
-                <form action="{{ route('admin.plan.create') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.user.create') }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="row">
@@ -54,7 +53,7 @@
                                 </div>
                                 <div class="col-lg-8">
                                     <input type="text" id="example-rounded" class="form-control rounded-pill"
-                                        name="name" placeholder="Name">
+                                        name="name" placeholder="Name" value="{{ old('name') }}">
                                 </div>
                             </div>
                         </div>
@@ -64,11 +63,11 @@
 
                             <div class="row g-lg-4 g-2">
                                 <div class="col-lg-4">
-                                    <label for="example-rounded" class="col-form-label"> price</label>
+                                    <label for="example-rounded" class="col-form-label"> email</label>
                                 </div>
                                 <div class="col-lg-8">
                                     <input type="text" id="example-rounded" class="form-control rounded-pill"
-                                        name="price" placeholder="price ">
+                                        name="email" placeholder="email" value="{{ old('email') }}">
                                 </div>
                             </div>
 
@@ -79,71 +78,34 @@
 
                             <div class="row g-lg-4 g-2">
                                 <div class="col-lg-4">
-                                    <label for="example-rounded" class="col-form-label">discount price</label>
+                                    <label for="example-rounded" class="col-form-label"> password</label>
+                                </div>
+                                <div class="col-lg-8">
+                                    <input type="password" id="example-rounded" class="form-control rounded-pill"
+                                        name="password" placeholder="password "  value="{{ old('password') }}">
+                                </div>
+                            </div>
+
+                        </div>
+                        <br><br><br>
+                        <div class="col-md-8">
+
+
+                            <div class="row g-lg-4 g-2">
+                                <div class="col-lg-4">
+                                    <label for="example-rounded" class="col-form-label"> phone</label>
                                 </div>
                                 <div class="col-lg-8">
                                     <input type="text" id="example-rounded" class="form-control rounded-pill"
-                                        name="discount_price" placeholder=" discount price">
+                                        name="phone" placeholder="  phone" value="{{ old('phone') }}">
                                 </div>
                             </div>
 
                         </div>
-                        <br><br><br>
-                        <div class="col-md-8">
-
-
-                            <div class="row g-lg-4 g-2">
-                                <div class="col-lg-4">
-                                    <label for="example-rounded" class="col-form-label"> description</label>
-                                </div>
-                                <div class="col-lg-8">
-                                    <input type="text" id="example-rounded" class="form-control rounded-pill"
-                                        name="description" placeholder=" description">
-                                </div>
-                            </div>
-
-                        </div>
-                        <br><br><br>
-                        <div class="col-md-8">
-
-
-                            <div class="row g-lg-4 g-2">
-                                <div class="col-lg-4">
-                                    <label for="example-rounded" class="col-form-label"> duration</label>
-                                </div>
-                                <div class="col-lg-8">
-                                    <input type="text" id="example-rounded" class="form-control rounded-pill"
-                                        name="duration" placeholder=" duration">
-                                </div>
-                            </div>
-
-                        </div>
-                        <br><br><br>
-                        <div class="col-md-8">
-
-
-                            <div class="row g-lg-4 g-2">
-                                <div class="col-lg-4">
-                                    <label for="example-rounded" class="col-form-label"> Active</label>
-                                </div>
-                                <div class="col-lg-8">
-                                    <input class="form-check-input" type="checkbox" id="is_visible" name="is_visible"  checked>
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <br><br><br>
                         
-
-
-
+                        <br><br><br>
                     </div>
 
-
-
-
-                   
                     <button type="submit" class="btn btn-success">Add</button>
 
                     <br><br><br><br>

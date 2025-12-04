@@ -27,10 +27,16 @@ Route::middleware('auth')->group(function () {
 // Route::delete('/posts/{post}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.destroy');
 
 
-Route::get('/dashboard', function () {
-    return view('admin.pages.dashboard.index');
-});
+// Route::get('/dashboard', function () {
+//     return view('admin.pages.dashboard.index');
+// });
 
+
+Route::prefix('admin/dashboard')
+    ->name('admin.dashboard.')
+    ->group(function () {
+        Route::get('/index', [\App\Http\Controllers\admin\dashboardController::class, 'index'])->name('index');
+    });
 
 Route::prefix('admin/plan')
     ->name('admin.plan.')
@@ -42,6 +48,7 @@ Route::prefix('admin/plan')
         Route::patch('/update', [\App\Http\Controllers\admin\PlanController::class, 'update'])->name('update');
         Route::delete('/delete', [\App\Http\Controllers\admin\PlanController::class, 'destroy'])->name('destroy');
     });
+
 Route::prefix('admin/client')
     ->name('admin.client.')
     ->group(function () {
@@ -52,6 +59,25 @@ Route::prefix('admin/client')
         Route::put('/create', [\App\Http\Controllers\admin\clientController::class, 'create'])->name('create');
         Route::patch('/update', [\App\Http\Controllers\admin\clientController::class, 'update'])->name('update');
         Route::delete('/delete', [\App\Http\Controllers\admin\clientController::class, 'destroy'])->name('destroy');
+    });
+Route::prefix('admin/user')
+    ->name('admin.user.')
+    ->group(function () {
+
+        Route::get('/index', [\App\Http\Controllers\admin\userController::class, 'index'])->name('index');
+        Route::get('/add', [\App\Http\Controllers\admin\userController::class, 'add'])->name('add');
+        Route::put('/create', [\App\Http\Controllers\admin\userController::class, 'create'])->name('create');
+        Route::patch('/update', [\App\Http\Controllers\admin\userController::class, 'update'])->name('update');
+        Route::delete('/delete', [\App\Http\Controllers\admin\userController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('admin/subscribtion')
+    ->name('admin.subscribtion.')
+    ->group(function () {
+
+        Route::get('/index', [\App\Http\Controllers\admin\subscribtionController::class, 'index'])->name('index');
+        Route::put('/create', [\App\Http\Controllers\admin\subscribtionController::class, 'create'])->name('create');
+        Route::get('/add', [\App\Http\Controllers\admin\subscribtionController::class, 'add'])->name('add');
     });
 
 

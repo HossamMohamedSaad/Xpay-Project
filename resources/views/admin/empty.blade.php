@@ -8,8 +8,10 @@
 <html lang="en">
 
 
-@include('admin.main.header')
-<title>Xpay | Dashboard</title>
+<head>
+    @include('admin.main.header')
+    <title>Xpay | Dashboard</title>
+</head>
 
 
 <body>
