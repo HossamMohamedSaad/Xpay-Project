@@ -13,23 +13,48 @@ class AccountController extends Controller
      */
     public function index()
     {
-        //
+        $account = account::all();
+        return view('client.pages.account.index' , compact("account"));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    
+    
+    public function create(Request $request)
     {
-        //
-    }
+        $validator = validator()->make($request->all(), [
+            'name' => 'required|string|max:255',
+            'amount' => 'required|numeric',
+        ],
+            [
+                'name.required' => 'Plan name is required',
+                'amount.required' => 'Plan price is required',
+                'name.string' => 'Name must be a string',
+                'name.max' => 'Name must not exceed 255 characters',
+                'amount.numeric' => 'Amount must be a number',
+            ]
+        );
 
-    /**
-     * Store a newly created resource in storage.
-     */
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first())->withInput();
+        }
+
+        $account = new account();
+        $account->name = $request->name;
+        $account->amount = $request->amount;
+        $account->save();
+
+        return $request;
+        
+    }
+    public function add()
+    {
+        return view('client.pages.account.add' );
+        
+    }
+    
+    
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

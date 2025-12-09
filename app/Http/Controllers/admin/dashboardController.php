@@ -19,7 +19,7 @@ class dashboardController extends Controller
         $subscriptions = Subscribtion::all();
         $plans = Plan::all();
 
-        $clients_count = $clients->count();
+        $clients_count = $clients->count()??0;
         $clients_blocked = $clients->where('is_blocked', 1)->count();
         $totalClientsWithSubscription = Client::whereHas('subscribtion')->count();
 

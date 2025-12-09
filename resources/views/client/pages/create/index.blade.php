@@ -1,0 +1,310 @@
+@include('client.main.html')
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+<head>
+    @include('client.main.header')
+</head>
+<body class="body dashboard1">
+
+    <!-- preload -->
+    {{-- <div class="preload preload-container">
+        <div class="middle">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+            <div class="bar bar6"></div>
+            <div class="bar bar7"></div>
+            <div class="bar bar8"></div>
+          </div>
+    </div> --}}
+    <!-- /preload -->
+
+    
+        
+    <div id="wrapper">
+        <div id="page" class="market-page">
+            {{-- header --}}
+            @include('client.main.head')
+
+            <div class="flat-tabs">
+                {{-- sidebar --}}
+                @include('client.main.sidebar')
+
+                <div class="content-tabs">
+                    <div id="create" class="tabcontent {{ Route::currentRouteName() == 'client.create.index' ? 'active' : '' }}">
+                        <div class="wrapper-content-create">
+                            <div class="heading-section">
+                                <h2 class="tf-title pb-30">Create New File</h2>
+                            </div>
+                            <div class="widget-tabs relative">
+                                <ul class="widget-menu-tab">
+                                    <li class="item-title active">
+                                        <span class="inner"><span class="order">1</span> Upload your image <i class="icon-keyboard_arrow_right"></i></span>
+                                    </li>
+                                    <li class="item-title">
+                                        <span class="inner"><span class="order">2</span>Description <i class="icon-keyboard_arrow_right"></i></span>
+                                    </li>
+                                    <li class="item-title">
+                                        <span class="inner"><span class="order">3</span>Submit NFT</span>
+                                    </li>
+                                </ul>
+                                <div class="widget-content-tab">
+                                    <div class="widget-content-inner upload active">
+                                        <div class="wrap-upload w-full">
+                                            <form action="#">
+                                                <label class="uploadfile">
+                                                    <img src="assets/images/box-icon/upload.png" alt="">
+                                                    <h5>Upload file</h5>
+                                                    <p class="text">Drag or choose your file to upload</p>
+                                                    <div class="text filename">PNG, GIF, WEBP, MP4 or MP3.Max 1Gb.</div>
+                                                    <input type="file" class="" name="file">
+                                                </label>
+                                            </form>
+                                        </div>
+                                        <div class="wrap-content w-full">
+                                            <form   id="commentform" class="comment-form" novalidate="novalidate">
+                                                <fieldset class="name">
+                                                    <label>Product name *</label>
+                                                    <input type="text" id="name" placeholder="Product name" name="name" tabindex="2" value="" aria-required="true" required="">
+                                                </fieldset>
+                                                <fieldset class="message">
+                                                    <label>Description *</label>
+                                                    <textarea id="message" name="message" rows="4" placeholder="Please describe your product*" tabindex="4" aria-required="true" required=""></textarea>
+                                                </fieldset>
+                                                <div class="flex gap30">
+                                                    <fieldset class="price">
+                                                        <label>Price</label>
+                                                        <input type="text" id="price" placeholder="Price" name="price" tabindex="2" value="" aria-required="true" required="">
+                                                    </fieldset>
+                                                    <fieldset class="properties">
+                                                        <label>Properties</label>
+                                                        <input type="text" id="properties" placeholder="Properties" name="properties" tabindex="2" value="" aria-required="true" required="">
+                                                    </fieldset>
+                                                    <fieldset class="size">
+                                                        <label>Size</label>
+                                                        <input type="text" id="size" placeholder="Size" name="size" tabindex="2" value="" aria-required="true" required="">
+                                                    </fieldset>
+                                                </div>
+                                                <fieldset class="blockchain">
+                                                    <label>Blockchain</label>
+                                                    <div class="widget-coins flex gap30 flex-wrap">
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-01.png" alt="">
+                                                            <p><a href="#">Bitcoin</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-02.png" alt="">
+                                                            <p><a href="#">Ethereum</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-03.png" alt="">
+                                                            <p><a href="#">Cardano</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-04.png" alt="">
+                                                            <p><a href="#">Solana</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-05.png" alt="">
+                                                            <p><a href="#">Litecoin</a></p>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset class="collection">
+                                                    <label>Collection</label>
+                                                    <input type="text" id="collection" placeholder="Collection" name="collection" tabindex="2" value="" aria-required="true" required="">
+                                                </fieldset>
+                                                <fieldset class="royatity">
+                                                    <label>Royatity</label>
+                                                    <input type="text" id="royatity" placeholder="Royatity" name="royatity" tabindex="2" value="" aria-required="true" required="">
+                                                </fieldset>
+                                                <div class="btn-submit flex gap30 justify-center">
+                                                    <button class="tf-button style-1 h50 w320 active">Preview<i class="icon-arrow-up-right2"></i></button>
+                                                    <button class="tf-button style-1 h50 w320" type="submit">Submit item<i class="icon-arrow-up-right2"></i></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="widget-content-inner description">
+                                        <div class="wrap-upload">
+                                            <form action="#" class="h-full">
+                                                <label class="uploadfile h-full flex items-center justify-center">
+                                                    <div class="text-center">
+                                                        <img src="assets/images/box-icon/upload.png" alt="">
+                                                        <h5>Upload file</h5>
+                                                        <p class="text">Drag or choose your file to upload</p>
+                                                        <div class="text filename">PNG, GIF, WEBP, MP4 or MP3.Max 1Gb.</div>
+                                                        <input type="file" class="" name="file">
+                                                    </div>
+                                                </label>
+                                            </form>
+                                        </div>
+                                        <div class="wrap-content w-full">
+                                            <form   id="commentform" class="comment-form" novalidate="novalidate">
+                                                <fieldset class="name">
+                                                    <label>Product name *</label>
+                                                    <input type="text" id="name" placeholder="Product name" name="name" tabindex="2" value="" aria-required="true" required="">
+                                                </fieldset>
+                                                <fieldset class="message">
+                                                    <label>Description *</label>
+                                                    <textarea id="message" name="message" rows="4" placeholder="Please describe your product*" tabindex="4" aria-required="true" required=""></textarea>
+                                                </fieldset>
+                                                <div class="flex gap30">
+                                                    <fieldset class="price">
+                                                        <label>Price</label>
+                                                        <input type="text" id="price" placeholder="Price" name="price" tabindex="2" value="" aria-required="true" required="">
+                                                    </fieldset>
+                                                    <fieldset class="properties">
+                                                        <label>Properties</label>
+                                                        <input type="text" id="properties" placeholder="Properties" name="properties" tabindex="2" value="" aria-required="true" required="">
+                                                    </fieldset>
+                                                    <fieldset class="size">
+                                                        <label>Size</label>
+                                                        <input type="text" id="size" placeholder="Size" name="size" tabindex="2" value="" aria-required="true" required="">
+                                                    </fieldset>
+                                                </div>
+                                                <fieldset class="blockchain">
+                                                    <label>Blockchain</label>
+                                                    <div class="widget-coins flex gap30 flex-wrap">
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-01.png" alt="">
+                                                            <p><a href="#">Bitcoin</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-02.png" alt="">
+                                                            <p><a href="#">Ethereum</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-03.png" alt="">
+                                                            <p><a href="#">Cardano</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-04.png" alt="">
+                                                            <p><a href="#">Solana</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-05.png" alt="">
+                                                            <p><a href="#">Litecoin</a></p>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset class="collection">
+                                                    <label>Collection</label>
+                                                    <input type="text" id="collection" placeholder="Collection" name="collection" tabindex="2" value="" aria-required="true" required="">
+                                                </fieldset>
+                                                <fieldset class="royatity">
+                                                    <label>Royatity</label>
+                                                    <input type="text" id="royatity" placeholder="Royatity" name="royatity" tabindex="2" value="" aria-required="true" required="">
+                                                </fieldset>
+                                                <div class="btn-submit flex gap30 justify-center">
+                                                    <button class="tf-button style-1 h50 active">Preview<i class="icon-arrow-up-right2"></i></button>
+                                                    <button class="tf-button style-1 h50" type="submit">Submit item<i class="icon-arrow-up-right2"></i></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="widget-content-inner submit">
+                                        <div class="wrap-upload w-full">
+                                            <form action="#">
+                                                <label class="uploadfile">
+                                                    <img src="assets/images/box-icon/upload.png" alt="">
+                                                    <h5>Upload file</h5>
+                                                    <p class="text">Drag or choose your file to upload</p>
+                                                    <div class="text filename">PNG, GIF, WEBP, MP4 or MP3.Max 1Gb.</div>
+                                                    <input type="file" class="" name="file">
+                                                </label>
+                                            </form>
+                                        </div>
+                                        <div class="wrap-content w-full">
+                                            <form   id="commentform" class="comment-form" novalidate="novalidate">
+                                                <fieldset class="name">
+                                                    <label>Product name *</label>
+                                                    <input type="text" id="name" placeholder="Product name" name="name" tabindex="2" value="" aria-required="true" required="">
+                                                </fieldset>
+                                                <fieldset class="message">
+                                                    <label>Description *</label>
+                                                    <textarea id="message" name="message" rows="4" placeholder="Please describe your product*" tabindex="4" aria-required="true" required=""></textarea>
+                                                </fieldset>
+                                                <div class="flex gap30">
+                                                    <fieldset class="price">
+                                                        <label>Price</label>
+                                                        <input type="text" id="price" placeholder="Price" name="price" tabindex="2" value="" aria-required="true" required="">
+                                                    </fieldset>
+                                                    <fieldset class="properties">
+                                                        <label>Properties</label>
+                                                        <input type="text" id="properties" placeholder="Properties" name="properties" tabindex="2" value="" aria-required="true" required="">
+                                                    </fieldset>
+                                                    <fieldset class="size">
+                                                        <label>Size</label>
+                                                        <input type="text" id="size" placeholder="Size" name="size" tabindex="2" value="" aria-required="true" required="">
+                                                    </fieldset>
+                                                </div>
+                                                <fieldset class="blockchain">
+                                                    <label>Blockchain</label>
+                                                    <div class="widget-coins flex gap30 flex-wrap">
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-01.png" alt="">
+                                                            <p><a href="#">Bitcoin</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-02.png" alt="">
+                                                            <p><a href="#">Ethereum</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-03.png" alt="">
+                                                            <p><a href="#">Cardano</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-04.png" alt="">
+                                                            <p><a href="#">Solana</a></p>
+                                                        </div>
+                                                        <div class="widget-coins-item flex items-center">
+                                                            <img src="assets/images/box-icon/coin-05.png" alt="">
+                                                            <p><a href="#">Litecoin</a></p>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset class="collection">
+                                                    <label>Collection</label>
+                                                    <input type="text" id="collection" placeholder="Collection" name="collection" tabindex="2" value="" aria-required="true" required="">
+                                                </fieldset>
+                                                <fieldset class="royatity">
+                                                    <label>Royatity</label>
+                                                    <input type="text" id="royatity" placeholder="Royatity" name="royatity" tabindex="2" value="" aria-required="true" required="">
+                                                </fieldset>
+                                                <div class="btn-submit flex gap30 justify-center">
+                                                    <button class="tf-button style-1 h50 w320 active">Preview<i class="icon-arrow-up-right2"></i></button>
+                                                    <button class="tf-button style-1 h50 w320" type="submit">Submit item<i class="icon-arrow-up-right2"></i></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        <!-- /#page -->
+
+        <!-- Modal Popup Bid -->
+
+    </div>
+    <!-- /#wrapper -->
+
+        @include('client.main.wrapper')
+
+
+    <!-- Javascript -->
+    @include('client.main.footerjs')
+
+</body>
+
+
+<!-- Mirrored from themesflat.co/html/open9/market.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Dec 2025 18:04:22 GMT -->
+</html>

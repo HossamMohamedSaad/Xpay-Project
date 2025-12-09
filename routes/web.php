@@ -88,8 +88,10 @@ Route::prefix('admin/user')
 
 
 
+    
+    
+    require __DIR__.'/client.php';
+    require __DIR__.'/auth.php';
+    require __DIR__.'/authclient.php';
 
-
-
-
-require __DIR__.'/auth.php';
+    
