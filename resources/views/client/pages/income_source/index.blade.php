@@ -9,7 +9,7 @@
 
     <!-- preload -->
     {{-- <div class="preload preload-container">
-        <div class="middle">
+        <div class="middle">[]
             <div class="bar bar1"></div>
             <div class="bar bar2"></div>
             <div class="bar bar3"></div>
@@ -35,19 +35,18 @@
 
                 <div class="content-tabs">
 
-                    <div id="account"
-                        class="tabcontent {{ Route::currentRouteName() == 'client.account.index' ? 'active' : '' }} ">
+
+                    <div id="income_source" class="tabcontent {{ Route::currentRouteName() == 'client.income_source.index' ? 'active' : '' }}">
                         <div class="wrapper-content">
                             <div class="inner-content">
                                 <div class="action__body w-full mb-40">
                                     <div class="tf-tsparticles">
-                                        <div id="tsparticles1" data-color="#161616" data-line="#000"></div>
+                                        <div id="ads" data-color="#161616" data-line="#000"></div>
                                     </div>
-                                    <h2>Add and Edit your account</h2>
+                                    <h2>Discover, create and edit your income sourses</h2>
                                     <div class="flat-button flex">
-
-                                        <a href="{{ route('client.account.add') }}"
-                                            class="tf-button style-2 h50 w190 mr-10">Add New Account<i
+                                        <a href="{{ route('client.income_source.add') }}"
+                                            class="tf-button style-2 h50 w190 mr-10">Add New Sourse<i
                                                 class="icon-arrow-up-right2"></i></a>
                                     </div>
                                     <div class="bg-home7">
@@ -121,98 +120,51 @@
                                     </div>
                                 </div>
                                 <div class="heading-section">
-                                    <h2 class="tf-title pb-30">Your Accounts</h2>
+                                    <h2 class="tf-title pb-30">Income Resource</h2>
                                 </div>
-                                <div class="widget-tabs relative">
-                                    
-                                    
-                                    <div class="widget-content-tab">
-                                        <div class="widget-content-inner">
-                                            <div class="wrap-box-card">
-                                                @foreach ($accounts as $account )
-                                                    
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-1">
-                                                        
-                                                        <h5 class="name">{{ $account->name }}</h5>
-                                                        <div class="d-flex gap-2" style="justify-content: space-between;">
-                                                            <form action="{{ route('client.account.delete') }}" method="POST">
-                                                                @csrf
-                                                                <input type="hidden" name="id" value="{{ $account->id }}">
-                                                                <button type="submit"style="background-color: #cb2e2e">Delete</button>
-                                                            </form>
 
-                                                            <form action="{{ route('client.account.edit') }}" method="POST">
-                                                                @csrf
-                                                                <input type="hidden" name="id" value="{{ $account->id }}">
-                                                                
-                                                                <button type="submit" >Edit</button>
-                                                            </form>
+
+
+                                <div class="tf-section-2 product-detail">
+                                    <div class="themesflat-container">
+                                        <div class="row">
+                                            
+                                            <div data-wow-delay="0s" class="wow fadeInUp col-12">
+                                                <div class="product-item offers">
+                                                    <h6><i class="icon-description"></i>Income Resource</h6>
+                                                    <i class="icon-keyboard_arrow_down"></i>
+                                                    <div class="content">
+                                                        <div class="table-heading">
+                                                            <div class="column">Name</div>
+                                                            <div class="column">Description</div>
+                                                            <div class="column">Actions</div>
+                                                            
                                                         </div>
+                                                        @foreach ($sources as $source  )
+                                                            
+                                                        <div class="table-item">
+                                                            <div class="column"><h6 class="price gem">{{ $source->name }}</h6></div>
+                                                            <div class="column">{{ $source->description }}</div>
+                                                            <div class="column">
+                                                                <a href="{{ route('client.income_source.edit', $source->id) }}" class="btn btn-primary">Edit</a>
+                                                                <a href="{{ route('client.income_source.delete', $source->id) }}" class="btn btn-danger">Delete</a>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        @endforeach
                                                         
-                                                        <div class="divider"></div>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <span class="text-bid">Current</span>
-                                                            <h6 class="price gem">${{ $account->amount }}</h6>
-                                                        </div>
                                                     </div>
                                                 </div>
-                                                @endforeach
-                                                
-                                                
-
                                             </div>
-
-                                            @if ($accountd != null)
-                                                
-                                            <div class="heading-section">
-                                                <h2 class="tf-title pb-30">Your Default Accounts</h2>
-                                            </div>
-
-                                            <div class="wrap-box-card">
-                                                    
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-1">
-                                                        
-                                                        <h5 class="name">{{ $accountd->name }}</h5>
-                                                        
-                                                        
-                                                        <div class="divider"></div>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <span class="text-bid">Current</span>
-                                                            <h6 class="price gem">${{ $accountd->amount }}</h6>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-
-                                            </div>
-                                                
-                                            @endif
-
+                                            
                                         </div>
-                                        
-
-
-
-
-
-
-
-
-                                        
                                     </div>
                                 </div>
-
+                                
                             </div>
-                            {{-- @include('client.main.leftside') --}}
-
+                            
                         </div>
                     </div>
-
-
-
 
                 </div>
             </div>
@@ -227,13 +179,10 @@
 
     @include('client.main.wrapper')
 
-
     <!-- Javascript -->
     @include('client.main.footerjs')
 
 </body>
 
-
-<!-- Mirrored from themesflat.co/html/open9/market.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Dec 2025 18:04:22 GMT -->
 
 </html>

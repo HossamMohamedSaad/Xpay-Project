@@ -12,11 +12,11 @@ class transaction extends Model
     {
         return $this->belongsTo(Client::class, 'client_id');
     }   
-    public function from_account()
+    public function from()
     {
         return $this->belongsTo(account::class, 'from_account');
     }
-    public function to_account()
+    public function to()
     {
         return $this->belongsTo(account::class, 'to_account');
     }

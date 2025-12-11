@@ -7,59 +7,98 @@ use Illuminate\Http\Request;
 
 class MonthlyExpenseCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $sources = auth()->guard('client')->user()->monthly_expense_category;
+
+        return view('client.pages.month_expense.index', compact('sources'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function add()
     {
-        //
+        $expense_categories = auth()->guard('client')->user()->expense_category;
+
+        return view('client.pages.month_expense.add', compact('expense_categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
+        $validator = validator()->make($request->all(), [
+            'expense_category_id' => 'required|exists:expense_categories,id',
+            'amount' => 'required|numeric',
+            'period' => 'required|integer',
+        ],
+            [
+                'expense_category_id.required' => '  income source is required',
+                'expense_category_id.exists' => 'income source does not exist',
+                'amount.numeric' => 'amount must be a number',
+                'amount.required' => 'amount is required',
+                'period.required' => 'period is required',
+                'period.integer' => 'period must be integer',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first())->withInput();
+        }
+
+        $monthly_expense_category = new monthly_expense_category();
+        $monthly_expense_category->client_id = auth()->guard('client')->user()->id;
+        $monthly_expense_category->expense_category_id = $request->expense_category_id;
+        $monthly_expense_category->amount = $request->amount;
+        $monthly_expense_category->period = $request->period;
+        $monthly_expense_category->save();
+
+        return redirect()->route('client.month_expense.index')->with('success', 'Monthly Expenses created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(monthly_expense_category $monthly_expense_category)
+    public function edit($id)
     {
-        //
+
+        $expense_categories = auth()->guard('client')->user()->expense_category;
+        $month_category = monthly_expense_category::findOrFail($id);
+
+        return view('client.pages.month_expense.update', compact('expense_categories', 'month_category'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(monthly_expense_category $monthly_expense_category)
+    public function update(Request $request)
     {
-        //
+        $validator = validator()->make($request->all(), [
+            'expense_category_id' => 'required|exists:expense_categories,id',
+            'amount' => 'required|numeric',
+            'period' => 'required|integer',
+        ],
+            [
+                'expense_category_id.required' => '  income source is required',
+                'expense_category_id.exists' => 'income source does not exist',
+                'amount.numeric' => 'amount must be a number',
+                'amount.required' => 'amount is required',
+                'period.required' => 'period is required',
+                'period.integer' => 'period must be integer',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first())->withInput();
+        }
+
+        $monthly_expense_category = monthly_expense_category::findOrFail($request->id);
+        $monthly_expense_category->client_id = auth()->guard('client')->user()->id;
+        $monthly_expense_category->expense_category_id = $request->expense_category_id;
+        $monthly_expense_category->amount = $request->amount;
+        $monthly_expense_category->period = $request->period;
+        $monthly_expense_category->save();
+
+        return redirect()->route('client.month_expense.index')->with('success', 'Monthly Expense updated successfully');
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, monthly_expense_category $monthly_expense_category)
+    
+    public function destroy($id)
     {
-        //
-    }
+        $income = monthly_expense_category::findOrFail($id);
+        $income->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(monthly_expense_category $monthly_expense_category)
-    {
-        //
+        return redirect()->route('client.month_expense.index')->with('success', 'Monthly Expense deleted successfully');
     }
 }

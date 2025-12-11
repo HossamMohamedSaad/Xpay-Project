@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('income_source_id')->references('id')->on('income_sources')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('amount')->default(0);
+            $table->integer('period')->default(4)->comment('in Weeks');
+
             $table->timestamps();
         });
     }
