@@ -16,12 +16,14 @@ return new class extends Migration
             $table->foreignId('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('top_income_source_id')->nullable()->references('id')->on('income_sources')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('top_expense_category_id')->nullable()->references('id')->on('expense_categories')->onDelete('cascade')->onUpdate('cascade');
+
             $table->integer('month');
             $table->integer('year');
             $table->integer('total_income')->default(0);
             $table->integer('total_expense')->default(0);
             $table->integer('net_balance')->default(0);
             
+            $table->unique(['client_id', 'month', 'year']);
             $table->timestamps();
         });
     }

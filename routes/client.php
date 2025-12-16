@@ -51,6 +51,18 @@
         return view('client.ppp.market');
     });
     
+    Route::prefix('client/dashboard')
+    ->name('client.dashboard.')
+    ->middleware('auth:client')
+    ->group( function () {
+
+        Route::get('/index', [\App\Http\Controllers\client\DashboardController::class, 'index'])->name('index');
+        // Route::get('/add', [\App\Http\Controllers\client\AccountController::class, 'add'])->name('add');
+        // Route::post('/create', [\App\Http\Controllers\client\AccountController::class, 'create'])->name('create');
+        // Route::post('/destroy', [\App\Http\Controllers\client\AccountController::class, 'destroy'])->name('delete');
+        // Route::post('/edit', [\App\Http\Controllers\client\AccountController::class, 'edit'])->name('edit');
+        // Route::post('/update', [\App\Http\Controllers\client\AccountController::class, 'update'])->name('update');
+    });
     Route::prefix('client/account')
     ->name('client.account.')
     ->middleware('auth:client')
@@ -63,6 +75,7 @@
         Route::post('/edit', [\App\Http\Controllers\client\AccountController::class, 'edit'])->name('edit');
         Route::post('/update', [\App\Http\Controllers\client\AccountController::class, 'update'])->name('update');
     });
+
     Route::prefix('client/transaction')
     ->name('client.transaction.')
     ->middleware('auth:client')
@@ -119,6 +132,30 @@
         Route::get('/destroy/{id}', [\App\Http\Controllers\client\MonthlyExpenseCategoryController::class, 'destroy'])->name('delete');
         Route::get('/edit/{id}', [\App\Http\Controllers\client\MonthlyExpenseCategoryController::class, 'edit'])->name('edit');
         Route::post('/update', [\App\Http\Controllers\client\MonthlyExpenseCategoryController::class, 'update'])->name('update');
+    });
+    Route::prefix('client/income')
+    ->name('client.income.')
+    ->middleware('auth:client')
+    ->group( function () {
+
+        Route::get('/index', [\App\Http\Controllers\client\IncomeController::class, 'index'])->name('index');
+        Route::get('/add', [\App\Http\Controllers\client\IncomeController::class, 'add'])->name('add');
+        Route::post('/create', [\App\Http\Controllers\client\IncomeController::class, 'create'])->name('create');
+        Route::get('/destroy/{id}', [\App\Http\Controllers\client\IncomeController::class, 'destroy'])->name('delete');
+        Route::get('/edit/{id}', [\App\Http\Controllers\client\IncomeController::class, 'edit'])->name('edit');
+        Route::post('/update', [\App\Http\Controllers\client\IncomeController::class, 'update'])->name('update');
+    });
+    Route::prefix('client/expense')
+    ->name('client.expense.')
+    ->middleware('auth:client')
+    ->group( function () {
+
+        Route::get('/index', [\App\Http\Controllers\client\ExpensesController::class, 'index'])->name('index');
+        Route::get('/add', [\App\Http\Controllers\client\ExpensesController::class, 'add'])->name('add');
+        Route::post('/create', [\App\Http\Controllers\client\ExpensesController::class, 'create'])->name('create');
+        Route::get('/destroy/{id}', [\App\Http\Controllers\client\ExpensesController::class, 'destroy'])->name('delete');
+        Route::get('/edit/{id}', [\App\Http\Controllers\client\ExpensesController::class, 'edit'])->name('edit');
+        Route::post('/update', [\App\Http\Controllers\client\ExpensesController::class, 'update'])->name('update');
     });
     
 

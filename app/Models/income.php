@@ -19,7 +19,7 @@ class income extends Model
     }
     public function account()
     {
-        return $this->belongsTo(account::class, 'income_source_id');
+        return $this->belongsTo(account::class, 'account_id');
     }
     
 }

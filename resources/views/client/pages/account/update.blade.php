@@ -59,6 +59,8 @@
                                                 <input type="text" id="amount"  name="amount" tabindex="2" value="{{ $account->amount }}" aria-required="true" required>
                                             </fieldset>
                                             
+                                                <input type="hidden" id="oldamount"  name="oldamount" tabindex="2" value="{{ $account->amount }}" aria-required="true" required>
+                                            
                                         </div>
                                         <fieldset class="default">
 

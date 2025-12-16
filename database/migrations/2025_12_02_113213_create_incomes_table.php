@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('income_source_id')->references('id')->on('income_sources')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('income_source_id')->nullable()->references('id')->on('income_sources')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('account_id')->references('id')->on('accounts')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('amount')->default(0);
             $table->string('description')->nullable();

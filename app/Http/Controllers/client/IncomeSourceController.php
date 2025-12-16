@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class IncomeSourceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+   
     public function index()
     {
         $sources = auth()->guard('client')->user()->income_source;
@@ -17,9 +15,7 @@ class IncomeSourceController extends Controller
         return view('client.pages.income_source.index', compact('sources'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function add()
     {
         return view('client.pages.income_source.add');
@@ -95,9 +91,7 @@ class IncomeSourceController extends Controller
         return redirect()->route('client.income_source.index')->with('success', 'Account created successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy($id)
     {
         $income = income_source::findOrFail($id);
