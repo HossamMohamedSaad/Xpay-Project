@@ -54,10 +54,7 @@ class IncomeController extends Controller
         if($request->amount <= 0){
             return redirect()->back()->with('error', 'Amount must be greater than 0')->withInput();
         }
-        // $account = account::find($request->account_id);
-        // if($request->amount >= $account->amount){
-        //     return redirect()->back()->with('error', 'Amount must be greater than account balance')->withInput();
-        // }
+        
         \DB::beginTransaction();
         try {
             
@@ -157,7 +154,7 @@ class IncomeController extends Controller
             }
 
             \DB::commit();
-            return redirect()->route('client.income.index')->with('success', 'Income source created successfully');
+            return redirect()->route('client.income.index')->with('success', 'Income source updated successfully');
         }catch(Exception $e){
            \DB::rollBack();
             return redirect()->back()->with('error', $e->getMessage())->withInput();
@@ -168,6 +165,11 @@ class IncomeController extends Controller
     public function destroy($id)
     {
         $income = income::findOrFail($id);
+
+        $account = account::find($income->account_id);
+        $account->amount = $account->amount - $income->amount;
+        $account->save();
+
         $income->delete();
 
         return redirect()->route('client.income.index')->with('success', 'Account deleted successfully');

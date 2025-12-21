@@ -17,7 +17,7 @@ class clientController extends Controller
      */
     public function index()
     {
-        $clients = Client::with('subscribtion')->get();
+        $clients = Client::with('subscribtion')->paginate(10);
         $plans = Plan::all();
         return view('admin.pages.client.index', compact('clients', 'plans'));
     }

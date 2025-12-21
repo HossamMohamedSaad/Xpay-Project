@@ -88,7 +88,7 @@ class IncomeSourceController extends Controller
         
         $income->save();
 
-        return redirect()->route('client.income_source.index')->with('success', 'Account created successfully');
+        return redirect()->route('client.income_source.index')->with('success', 'Account updated successfully');
     }
 
     

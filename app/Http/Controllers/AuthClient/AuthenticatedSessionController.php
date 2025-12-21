@@ -24,11 +24,32 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-         $request->authenticate("client");
+        $request->authenticate("client");
         
         $request->session()->regenerate();
+
+        $is_blocked_client = Auth::guard('client')->user()->is_blocked;
+        if($is_blocked_client){
+            Auth::guard('client')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect()->route('client.login');
+        }
+        $sub_client = Auth::guard('client')->user()->subscribtion()->where('is_active', true)?->first();
+        if ($sub_client) {
+            
+
+            return redirect()->route('client.dashboard.index');
+        }
+        else
+        {
+            Auth::guard('client')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect()->route('client.plan.index');
+        }
         
-        return redirect()->route('client.account.index');
+        
     }
 
     /**

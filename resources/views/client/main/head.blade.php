@@ -1,14 +1,14 @@
 <div id="market-header">
                 <div class="market-header flex items-center justify-between">
-                    <div class="widget-search">
+                    {{-- <div class="widget-search">
                         <form action="#" method="get" role="search" class="search-form relative">
                             <input type="search" id="search" class="search-field style-1" placeholder="Search artwork, collection..." value="" name="s" title="Search for" required="">
                             <button class="search search-submit" type="submit" title="Search">
                                 <i class="icon-search"></i>
                             </button>
                         </form>
-                    </div>
-                    <div class="admin_active" id="header_admin">
+                    </div> --}}
+                    {{-- <div class="admin_active" id="header_admin">
                         <div class="popup-notification relative">
                             <div class="notification">
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 

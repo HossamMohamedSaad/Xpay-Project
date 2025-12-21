@@ -137,7 +137,7 @@
                                                         <div class="table-heading">
                                                             <div class="column">Income Source</div>
                                                             <div class="column">Amount</div>
-                                                            <div class="column">period</div>
+                                                            <div class="column">period Per Week</div>
                                                             <div class="column">Actions</div>
                                                             
                                                         </div>

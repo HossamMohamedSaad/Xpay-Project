@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             ExpensesSeeder::class,
             MonthlyReportSeeder::class,
             TransactionSeeder::class,
+            PaymentSeeder::class,
 
             
             

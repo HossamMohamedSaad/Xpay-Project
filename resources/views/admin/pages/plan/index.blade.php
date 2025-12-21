@@ -67,13 +67,13 @@
                                     <table class="table align-middle mb-0">
                                         <thead class="fs-xs">
                                             <tr>
-                                                <th> Name</th>
-                                                <th>price</th>
-                                                <th>discount price</th>
-                                                <th>Discreption</th>
-                                                <th>duration months</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
+                                                <th width="10%"> Name</th>
+                                                <th width="10%">price</th>
+                                                <th width="10%">discount price</th>
+                                                <th width="30%">Discreption</th>
+                                                <th width="10%">duration months</th>
+                                                <th width="10%">Status</th>
+                                                <th width="20%">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>

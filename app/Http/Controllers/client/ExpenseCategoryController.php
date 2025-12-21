@@ -92,7 +92,7 @@ class ExpenseCategoryController extends Controller
         
         $expense->save();
 
-        return redirect()->route('client.expense_category.index')->with('success', 'category created successfully');
+        return redirect()->route('client.expense_category.index')->with('success', 'category updated successfully');
     }
 
     /**

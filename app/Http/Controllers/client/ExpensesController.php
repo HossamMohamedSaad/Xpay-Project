@@ -159,7 +159,7 @@ class ExpensesController extends Controller
 
 
             \DB::commit();
-            return redirect()->route('client.expense.index')->with('success', 'expense source created successfully');
+            return redirect()->route('client.expense.index')->with('success', 'expense source updated successfully');
         }catch(Exception $e){
            \DB::rollBack();
             return redirect()->back()->with('error', $e->getMessage())->withInput();
@@ -170,6 +170,11 @@ class ExpensesController extends Controller
     public function destroy($id)
     {
         $expense = expenses::findOrFail($id);
+
+        $account = account::find($expense->account_id);
+        $account->amount = $account->amount +$expense->amount;
+        $account->save();
+
         $expense->delete();
 
         return redirect()->route('client.expense.index')->with('success', 'Account deleted successfully');

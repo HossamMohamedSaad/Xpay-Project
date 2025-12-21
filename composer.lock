@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e180b5828a927f64f44ae3334c969b26",
+    "content-hash": "a36fbe7540ae39748c8580262fff7925",
     "packages": [
         {
             "name": "brick/math",
@@ -3875,6 +3875,47 @@
                 "source": "https://github.com/ramsey/uuid/tree/4.9.1"
             },
             "time": "2025-09-04T20:59:21+00:00"
+        },
+        {
+            "name": "skrskr/paymob",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skrskr/paymob.git",
+                "reference": "4fcee4288e4726c9ecb48879d918d17f2e9894b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skrskr/paymob/zipball/4fcee4288e4726c9ecb48879d918d17f2e9894b4",
+                "reference": "4fcee4288e4726c9ecb48879d918d17f2e9894b4",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Skrskr\\Paymob\\PaymobServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Skrskr\\Paymob\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Mohamed Sakr",
+                    "email": "mohamed1.sakr1996@gmail.com"
+                }
+            ],
+            "description": "Laravel paymob payment gateway api integration",
+            "support": {
+                "issues": "https://github.com/skrskr/paymob/issues",
+                "source": "https://github.com/skrskr/paymob/tree/v1.0.3"
+            },
+            "time": "2023-06-03T18:00:50+00:00"
         },
         {
             "name": "spatie/image",
@@ -10353,5 +10394,5 @@
         "php": "^8.2"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }

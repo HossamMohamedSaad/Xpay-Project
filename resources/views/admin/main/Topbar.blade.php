@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center justify-content-center gap-2">
             <!-- Topbar Brand Logo -->
             <div class="logo-topbar">
-                <a href="index.html" class="logo-dark">
+                <a href="{{ route('admin.dashboard.index') }}" class="logo-dark">
                     <span class="d-flex align-items-center gap-1">
                         <span class="avatar avatar-xs rounded-circle text-bg-dark">
                             <span class="avatar-title">
@@ -43,12 +43,12 @@
             </div>
 
             <!-- Topbar Link Item -->
-            <div class="topbar-item d-none d-lg-flex">
+            {{-- <div class="topbar-item d-none d-lg-flex">
                 <a href="#!" class="topbar-link btn shadow-none btn-link px-2"> Components</a>
-            </div>
+            </div> --}}
 
             <!-- Dropdown -->
-            <div class="topbar-item">
+            {{-- <div class="topbar-item">
                 <div class="dropdown">
                     <a href="#!" class="topbar-link btn shadow-none btn-link dropdown-toggle drop-arrow-none px-2"
                         data-bs-toggle="dropdown" data-bs-offset="0,13">
@@ -66,10 +66,10 @@
                         </a>
                     </div> <!-- end dropdown-menu-->
                 </div> <!-- end dropdown-->
-            </div> <!-- end topbar item-->
+            </div> <!-- end topbar item--> --}}
 
             <!-- Mega Menu Dropdown -->
-            <div class="topbar-item d-none d-md-flex">
+            {{-- <div class="topbar-item d-none d-md-flex">
                 <div class="dropdown">
                     <button class="topbar-link btn shadow-none btn-link px-2 dropdown-toggle drop-arrow-none"
                         data-bs-toggle="dropdown" data-bs-offset="0,13" type="button" aria-haspopup="false"
@@ -145,16 +145,16 @@
                         </div> <!-- end .h-100-->
                     </div> <!-- .dropdown-menu-->
                 </div> <!-- .dropdown-->
-            </div> <!-- end topbar-item -->
+            </div> <!-- end topbar-item --> --}}
         </div> <!-- .d-flex-->
 
         <div class="d-flex align-items-center gap-2">
             <!-- Search -->
-            <div class="app-search d-none d-xl-flex me-xl-2">
+            {{-- <div class="app-search d-none d-xl-flex me-xl-2">
                 <input type="search" class="form-control topbar-search" name="search"
                     placeholder="Search for something...">
                 <i data-lucide="search" class="app-search-icon text-muted"></i>
-            </div>
+            </div> --}}
 
             <!-- Theme Dropdown -->
             <div class="topbar-item me-2">
@@ -559,10 +559,14 @@
                         </a>
 
                         <!-- Logout -->
-                        <a href="javascript:void(0);" class="dropdown-item text-danger fw-semibold">
-                            <i class="ti ti-logout-2 me-2 fs-17 align-middle"></i>
-                            <span class="align-middle">Log Out</span>
-                        </a>
+                        <form action="{{ route('logout') }}" method="post" id="my_form">
+                            @csrf
+                            <a href="javascript:{}" onclick="document.getElementById('my_form').submit();" class="dropdown-item text-danger fw-semibold">
+                                <i class="ti ti-logout-2 me-2 fs-17 align-middle"></i>
+                                <span class="align-middle">Log Out</span>
+                               
+                            </a>
+                        </form>
                     </div>
 
                 </div>

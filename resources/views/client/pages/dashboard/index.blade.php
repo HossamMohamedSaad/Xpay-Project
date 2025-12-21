@@ -190,14 +190,16 @@
                                                         {{-- <div class="column">Actions</div> --}}
                                                         
                                                     </div>
-                                                    @if ($incomes == Null)
+                                                    @if ($incomes ->isEmpty())
                                                         
                                                     <div class="column " style="column-span: 100%;">No Incomes</div>
                                                     @else
                                                     @foreach ($incomes as $income  )
+                                                    
                                                         
                                                     <div class="table-item">
-                                                        <div class="column"><h6 class="price gem">{{ $income->income_source?->name }}</h6></div>
+                                                        
+                                                        <div class="column"><h6 class="price gem">{{ $income->income_source?->name??"EDIT BY USER" }}</h6></div>
                                                         <div class="column">{{ $income->account?->name }}</div>
                                                         <div class="column">{{ $income->amount }}</div>
                                                         <div class="column">{{ $income->created_at }}</div>
@@ -228,7 +230,7 @@
                                                         {{-- <div class="column">Actions</div> --}}
                                                         
                                                     </div>
-                                                    @if ($expenses == Null)
+                                                    @if ($expenses ->isEmpty())
                                                         
                                                     <div class="column " style="column-span: 100%;">No Expenses</div>
                                                     @else
@@ -280,6 +282,10 @@
                                                         <div class="column">Amount</div>
                                                         
                                                     </div>
+                                                    @if ($accounts ->isEmpty())
+                                                        
+                                                    <div class="column " style="column-span: 100%;">No Account</div>
+                                                    @endif
                                                     @foreach ($accounts as $account  )
                                                         
                                                     <div class="table-item">
@@ -296,30 +302,34 @@
                                             </div>
                                             <div class="transactions"> 
                                                 <div data-wow-delay="0s" class="wow fadeInUp col-12">
-                                            <div class="product-item offers">
-                                                <h6><i class="icon-description"></i><a href="{{ route('client.transaction.index') }}">Transactions</a></h6>
-                                                <i class="icon-keyboard_arrow_down"></i>
-                                                <div class="content">
-                                                    <div class="table-heading">
-                                                        <div class="column">From</div>
-                                                        <div class="column">To</div>
-                                                        <div class="column">Amount</div>
-                                                        <div class="column">Short Discreption</div>
+                                                    <div class="product-item offers">
+                                                        <h6><i class="icon-description"></i><a href="{{ route('client.transaction.index') }}">Transactions</a></h6>
+                                                        <i class="icon-keyboard_arrow_down"></i>
+                                                        <div class="content">
+                                                            <div class="table-heading">
+                                                                <div class="column">From</div>
+                                                                <div class="column">To</div>
+                                                                <div class="column">Amount</div>
+                                                                <div class="column">Short Discreption</div>
+                                                                
+                                                            </div>
+                                                            @if ($transactions ->isEmpty())
                                                         
+                                                                <div class="column " style="column-span: 100%;">No Transaction</div>
+                                                            @endif
+                                                            @foreach ($transactions as $transaction  )
+                                                                
+                                                            <div class="table-item">
+                                                                <div class="column">{{ $transaction->from?->name }}</h6></div>
+                                                                <div class="column">{{ $transaction->to?->name }}</h6></div>
+                                                                <div class="column">{{ $transaction->amount }}</h6></div>
+                                                                <div class="column">{{ $transaction->short_description }}</h6></div>
+                                                            </div>
+                                                            @endforeach
+                                                            
                                                     </div>
-                                                    @foreach ($transactions as $transaction  )
-                                                        
-                                                    <div class="table-item">
-                                                        <div class="column">{{ $transaction->from?->name }}</h6></div>
-                                                        <div class="column">{{ $transaction->to?->name }}</h6></div>
-                                                        <div class="column">{{ $transaction->amount }}</h6></div>
-                                                        <div class="column">{{ $transaction->short_description }}</h6></div>
-                                                    </div>
-                                                    @endforeach
-                                                    
                                                 </div>
                                             </div>
-                                        </div>
 
                                             </div>
                                             <div class="income_resource"> 
@@ -334,6 +344,10 @@
                                                         {{-- <div class="column">Actions</div> --}}
                                                         
                                                     </div>
+                                                    @if ($sources ->isEmpty())
+                                                        
+                                                    <div class="column " style="column-span: 100%;">No Sources</div>
+                                                    @endif
                                                     @foreach ($sources as $source  )
                                                         
                                                     <div class="table-item">
@@ -364,6 +378,10 @@
                                                         {{-- <div class="column">Actions</div> --}}
                                                         
                                                     </div>
+                                                    @if ($sources ->isEmpty())
+                                                        
+                                                    <div class="column " style="column-span: 100%;">No Sources</div>
+                                                    @endif
                                                     @foreach ($sources as $source  )
                                                         
                                                     <div class="table-item">

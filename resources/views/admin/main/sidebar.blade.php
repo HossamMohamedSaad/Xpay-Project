@@ -2,7 +2,7 @@
     <div class="scrollbar" data-simplebar>
 
         <!-- User -->
-        <div class="sidenav-user text-nowrap border border-dashed rounded-3">
+        {{-- <div class="sidenav-user text-nowrap border border-dashed rounded-3">
             <a href="#!" class="sidenav-user-name d-flex align-items-center">
                 <img src="{{ asset('admin/assets/images/users/user-2.jpg') }}" width="36" class="rounded-circle me-2 d-flex"
                     alt="user-image">
@@ -11,7 +11,7 @@
                     <h6 class="my-0 text-muted">Admin Head</h6>
                 </span>
             </a>
-        </div>
+        </div> --}}
 
         <!--- Sidenav Menu -->
         <ul class="side-nav">
@@ -53,10 +53,16 @@
                     <span class="menu-text" data-lang="calendar"> subscription </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{ route('admin.payment.index') }}" class="side-nav-link">
+                    <span class="menu-icon"><i data-lucide="notebook-text"></i></span>
+                    <span class="menu-text" data-lang="notebook-text"> Payment </span>
+                </a>
+            </li>
            
 
             
-
+{{-- 
             <li class="side-nav-title mt-2" data-lang="pages-title">Custom Pages</li>
 
             <li class="side-nav-item">
@@ -442,7 +448,7 @@
                     <span class="menu-icon"><i data-lucide="shield-ban"></i></span>
                     <span class="menu-text" data-lang="disabled-menu"> Disabled Menu </span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->integer('discount_price')->nullable();
-            $table->integer('duration');
+            $table->integer('duration')->comment('in weeks');
             $table->text('description')->nullable();
             $table->boolean('is_visible')->default(true);
             $table->timestamps();

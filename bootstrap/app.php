@@ -22,13 +22,12 @@ return Application::configure(basePath: dirname(__DIR__))
             foreach ($middlewares as $mw) {
                 if (is_string($mw) && str_starts_with($mw, 'auth:')) {
                     [$name, $guard] = array_pad(explode(':', $mw, 2), 2, null);
-
                     if ($guard === 'client') {
                         // Not logged in & route has auth:client → go to client login
                         return route('client.login');
                     }
 
-                    if ($guard === '') {
+                    if ($guard === 'web') {
                         // Not logged in & route has auth:web → go to admin login
                         return route('login');
                     }

@@ -142,14 +142,14 @@
                                                             <div class="column">Actions</div>
                                                             
                                                         </div>
-                                                        @if ($incomes == Null)
+                                                        @if ($incomes -> isEmpty())
                                                             
                                                         <div class="column " style="column-span: 100%;">No Incomes</div>
                                                         @else
                                                         @foreach ($incomes as $income  )
                                                             
                                                         <div class="table-item">
-                                                            <div class="column"><h6 class="price gem">{{ $income->income_source?->name }}</h6></div>
+                                                            <div class="column"><h6 class="price gem">{{ $income->income_source?->name??'EDIT BY USER' }}</h6></div>
                                                             <div class="column">{{ $income->account?->name }}</div>
                                                             <div class="column">{{ $income->amount }}</div>
                                                             <div class="column">{{ $income->created_at }}</div>

@@ -74,27 +74,27 @@ class AccountController extends Controller
 
     public function update(Request $request)
     {
-        // $validator = validator()->make($request->all(), [
-        //     'name' => 'required|string|max:255',
-        //     'amount' => 'required|numeric',
-        // ],
-        //     [
-        //         'name.required' => 'Plan name is required',
-        //         'amount.required' => 'Plan price is required',
-        //         'name.string' => 'Name must be a string',
-        //         'name.max' => 'Name must not exceed 255 characters',
-        //         'amount.numeric' => 'Amount must be a number',
-        //     ]
-        // );
+        $validator = validator()->make($request->all(), [
+            'name' => 'required|string|max:255',
+            'amount' => 'required|numeric',
+        ],
+            [
+                'name.required' => 'Plan name is required',
+                'amount.required' => 'Plan price is required',
+                'name.string' => 'Name must be a string',
+                'name.max' => 'Name must not exceed 255 characters',
+                'amount.numeric' => 'Amount must be a number',
+            ]
+        );
 
-        // if ($validator->fails()) {
-        //     return redirect()->back()->with('error', $validator->errors()->first())->withInput();
-        // }
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first())->withInput();
+        }
 
         \DB::beginTransaction();
         try {
 
-            if($request->amount <= 0){
+            if($request->amount < 0){
                 return redirect()->back()->with('error', 'Amount must be greater than 0')->withInput();
             }
             if($request->oldamount > $request->amount){
@@ -136,7 +136,7 @@ class AccountController extends Controller
 
             
     
-            return redirect()->route('client.account.index')->with('success', 'Account created successfully');
+            return redirect()->route('client.account.index')->with('success', 'Account updated successfully');
             // return view('client.pages.account.update', compact('account'));
         }
         catch (\Exception $e) {

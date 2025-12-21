@@ -12,3 +12,7 @@ Artisan::command('inspire', function () {
 Schedule::command('reports:monthly')
     ->monthlyOn(1, '00:10')   
     ->withoutOverlapping();
+
+Schedule::command('app:check-clients-subscription')
+        ->dailyAt('01:00') 
+        ->withoutOverlapping();

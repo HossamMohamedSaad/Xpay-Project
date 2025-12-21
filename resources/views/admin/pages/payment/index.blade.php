@@ -12,7 +12,7 @@
     <!-- Datatables css -->
     <link href="{{ asset('admin/assets/plugins/datatables/responsive.bootstrap5.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin/assets/plugins/datatables/buttons.bootstrap5.min.css') }}" rel="stylesheet" type="text/css">
-    <title>Xpay | Subscribtion Control</title>
+    <title>Xpay | payment Control</title>
 </head>
 
 
@@ -37,14 +37,14 @@
 
                 <div class="row justify-content-center py-5">
                     <div class="col-xxl-5 col-xl-7 text-center">
-                        <a href="{{route('admin.subscribtion.add')}}" class="badge badge-default fw-normal shadow px-2 py-1 mb-2 fst-italic fs-xxs">
-                            <i data-lucide="table" class="fs-sm me-1"></i> Add Subscribtion
+                        <a href="{{route('admin.payment.add')}}" class="badge badge-default fw-normal shadow px-2 py-1 mb-2 fst-italic fs-xxs">
+                            <i data-lucide="table" class="fs-sm me-1"></i> Add payment
                         </a>
                         <h3 class="fw-bold">
-                            Subscribtion Section
+                            payment Section
                         </h3>
 
-                        <p class="fs-md text-muted mb-0">Exportable DataTables For Subscribtion</p>
+                        <p class="fs-md text-muted mb-0">Exportable DataTables For payment</p>
                     </div>
                 </div>
 
@@ -56,7 +56,7 @@
 
                 <div class="row justify-content-center">
                     <div class="col-xxl-12">
-                        {{-- <a href="{{ route('admin.subscribtion.add') }}" class="btn btn-success">Add Subscribtion</a> --}}
+                        {{-- <a href="{{ route('admin.payment.add') }}" class="btn btn-success">Add payment</a> --}}
                         {{-- <br><br> --}}
                         <div class="card">
                             <div class="card-header justify-content-between">
@@ -73,34 +73,29 @@
                                         <tr>
                                             <th>Client</th>
                                             <th>Plan</th>
-                                            <th>Start At</th>
-                                            <th>End At</th>
-                                            <th>Price Paid</th>
+                                            <th>merchant_order_id</th>
+                                            <th>amount_cents</th>
+                                            <th>status</th>
                                             <th> Method</th>
-                                            <th>Active</th>
-                                            <th>Cancel</th>
+                                            <th>success</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($subscriptions as $subscription)
+                                        @foreach ($payments as $payment)
                                             <tr>
-                                                <td>{{ $subscription->client->name }}</td>
-                                                <td>{{ $subscription->plan->name }}</td>
-                                                <td>{{ $subscription->start_date }}</td>
-                                                <td>{{ $subscription->end_date }}</td>
-                                                <td>{{ $subscription->price_paid }}</td>
-                                                <td>{{ $subscription->payment_method }}</td>
-                                                @if ($subscription->is_active == 1)
+                                                <td>{{ $payment->client->name }}</td>
+                                                <td>{{ $payment->plan->name }}</td>
+                                                <td>{{ $payment->merchant_order_id }}</td>
+                                                <td>{{ $payment->amount_cents }}</td>
+                                                <td>{{ $payment->status }}</td>
+                                                <td>{{ $payment->payment_method }}</td>
+                                                @if ($payment->success == 1)
                                                     <td><span class="badge badge-label badge-soft-success">Active</span></td>
                                                 @else
                                                     <td><span class="badge badge-label badge-soft-danger">Not Active</span></td>
                                                 @endif
 
-                                                @if ($subscription->is_cancelled == 0)
-                                                    <td><span class="badge badge-label badge-soft-success">Not Cancelled</span></td>
-                                                @else
-                                                    <td><span class="badge badge-label badge-soft-danger">Cancelled</span></td>
-                                                @endif
+                                                
                                                 
                                             </tr>
                                             
@@ -111,7 +106,7 @@
                                     </tbody>
                                 </table>
                                 <div class="mt-4">
-                                        {{ $subscriptions->links() }}
+                                        {{ $payments->links() }}
                                     </div>
                             </div> <!-- end card-body-->
                         </div> <!-- end card-->
@@ -141,8 +136,7 @@
 
     @include('admin.main.footerjs')
 
-    @include('admin.pages.subscribtion.tablejs')
-
+    @include('admin.pages.payment.tablejs')
     <script>
         (function () {
         const selectors = [
@@ -227,9 +221,8 @@
     </script>
 
 
-
 </body>
-    
+
 
 
 </html>

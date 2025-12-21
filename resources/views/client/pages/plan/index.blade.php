@@ -4,6 +4,7 @@
 <head>
     @include('client.main.header')
 </head>
+
 <body class="body dashboard1">
 
     <!-- preload -->
@@ -17,12 +18,12 @@
             <div class="bar bar6"></div>
             <div class="bar bar7"></div>
             <div class="bar bar8"></div>
-          </div>
+        </div>
     </div> --}}
     <!-- /preload -->
 
-    
-        
+
+
     <div id="wrapper">
         <div id="page" class="market-page">
             {{-- header --}}
@@ -33,9 +34,10 @@
                 @include('client.main.sidebar')
 
                 <div class="content-tabs">
-                    
-                    <div id="explore" class="tabcontent {{ Route::currentRouteName() == 'client.explore.index' ? 'active' : '' }}">
-                        <div class="wrapper-content">
+
+                    <div id="explore"
+                        class="tabcontent {{ Route::currentRouteName() == 'client.plan.index' ? 'active' : '' }}">
+                        {{-- <div class="wrapper-content">
                             <div class="inner-content">
                                 <div class="action__body w-full mb-40">
                                     <div class="tf-tsparticles">
@@ -43,8 +45,10 @@
                                     </div>
                                     <h2>Discover, create and sell your own NFT</h2>
                                     <div class="flat-button flex">
-                                        <a href="#" class="tf-button style-2 h50 w190 mr-10">Explore now<i class="icon-arrow-up-right2"></i></a>
-                                        <a href="#" class="tf-button style-2 h50 w230">Create your first NFT<i class="icon-arrow-up-right2"></i></a>
+                                        <a href="#" class="tf-button style-2 h50 w190 mr-10">Explore now<i
+                                                class="icon-arrow-up-right2"></i></a>
+                                        <a href="#" class="tf-button style-2 h50 w230">Create your first NFT<i
+                                                class="icon-arrow-up-right2"></i></a>
                                     </div>
                                     <div class="bg-home7">
                                         <div class="swiper-container autoslider3reverse" data-swiper='{
@@ -123,11 +127,16 @@
                                     <div class="tf-soft">
                                         <div class="soft-right">
                                             <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M3.125 5.625H16.875M3.125 10H16.875M3.125 14.375H10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                    id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M3.125 5.625H16.875M3.125 10H16.875M3.125 14.375H10"
+                                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
                                                     </svg>
-                                                <span>Sort by: recently added</span>
+                                                    <span>Sort by: recently added</span>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     <h6>Sort by</h6>
@@ -155,21 +164,23 @@
                                                             <span class="icon-tick"><span class="path2"></span></span>
                                                         </div>
                                                     </a>
-        
+
                                                     <h6>Options</h6>
                                                     <a href="#" class="dropdown-item">
                                                         <div class="sort-filter" href="#">
                                                             <span>Auction ending soon</span>
-                                                            <input class="check" type="checkbox" value="checkbox" name="check" checked="">
+                                                            <input class="check" type="checkbox" value="checkbox"
+                                                                name="check" checked="">
                                                         </div>
                                                     </a>
                                                     <a href="#" class="dropdown-item">
                                                         <div class="sort-filter" href="#">
                                                             <span>Show lazy minted</span>
-                                                            <input class="check" type="checkbox" value="checkbox" name="check">
+                                                            <input class="check" type="checkbox" value="checkbox"
+                                                                name="check">
                                                         </div>
                                                     </a>
-        
+
                                                 </div>
                                             </div>
                                         </div>
@@ -195,7 +206,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -204,18 +216,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-17.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-17.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -224,7 +239,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -233,18 +249,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-18.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-18.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -253,7 +272,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -262,18 +282,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-19.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-19.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -282,7 +305,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -291,18 +315,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-20.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-20.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -311,7 +338,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -320,18 +348,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-21.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-21.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -340,7 +371,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -349,18 +381,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-22.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-22.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -369,7 +404,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -378,18 +414,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-23.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-23.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -398,7 +437,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -407,18 +447,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-24.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-24.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -427,7 +470,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -436,18 +480,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-17.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-17.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -456,7 +503,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -465,18 +513,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-18.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-18.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -485,7 +536,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -494,18 +546,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-19.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-19.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -514,7 +569,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -523,18 +579,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-20.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-20.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -543,7 +602,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -552,18 +612,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-21.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-21.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -572,7 +635,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -581,18 +645,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-22.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-22.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -601,7 +668,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -610,18 +678,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-23.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-23.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -630,7 +701,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -639,18 +711,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-24.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-24.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -663,7 +738,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -672,18 +748,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-17.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-17.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -692,7 +771,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -701,18 +781,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-18.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-18.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -721,7 +804,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -730,18 +814,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-19.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-19.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -750,7 +837,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -759,18 +847,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-20.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-20.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -779,7 +870,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -788,18 +880,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-21.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-21.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -808,7 +903,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -817,18 +913,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-22.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-22.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -837,7 +936,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -846,18 +946,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-23.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-23.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -866,7 +969,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -875,18 +979,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-24.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-24.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -895,7 +1002,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -904,18 +1012,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-17.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-17.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -924,7 +1035,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -933,18 +1045,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-18.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-18.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -953,7 +1068,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -962,18 +1078,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-19.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-19.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -982,7 +1101,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -991,18 +1111,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-20.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-20.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1011,7 +1134,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1020,18 +1144,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-21.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-21.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1040,7 +1167,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1049,18 +1177,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-22.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-22.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1069,7 +1200,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1078,18 +1210,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-23.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-23.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1098,7 +1233,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1107,486 +1243,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-24.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-24.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="widget-content-inner">
-                                            <div class="wrap-box-card">
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-17.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-18.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-19.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-20.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-21.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-22.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-23.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-24.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-17.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-18.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-19.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-20.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-21.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-22.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-23.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-item">
-                                                    <div class="tf-card-box style-4">
-                                                        <div class="author flex items-center">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
-                                                            </div>
-                                                            <div class="info">
-                                                                <span>Created by:</span>
-                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-media">
-                                                            <a href="#">
-                                                                <img src="assets/images/box-item/card-item-24.jpg" alt="">
-                                                            </a>
-                                                            <span class="wishlist-button icon-heart"></span>
-                                                        </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <div>
-                                                                <span class="text-bid">Current Bid</span>
-                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
-                                                            </div>
-                                                            <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1599,7 +1270,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1608,18 +1280,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-17.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-17.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1628,7 +1303,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1637,18 +1313,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-18.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-18.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1657,7 +1336,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1666,18 +1346,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-19.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-19.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1686,7 +1369,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1695,18 +1379,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-20.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-20.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1715,7 +1402,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1724,18 +1412,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-21.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-21.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1744,7 +1435,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1753,18 +1445,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-22.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-22.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1773,7 +1468,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1782,18 +1478,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-23.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-23.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1802,7 +1501,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1811,18 +1511,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-24.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-24.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1831,7 +1534,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1840,18 +1544,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-17.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-17.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1860,7 +1567,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1869,18 +1577,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-18.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-18.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1889,7 +1600,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1898,18 +1610,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-19.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-19.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1918,7 +1633,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1927,18 +1643,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-20.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-20.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1947,7 +1666,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1956,18 +1676,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-21.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-21.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1976,7 +1699,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -1985,18 +1709,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-22.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-22.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2005,7 +1732,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-03.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -2014,18 +1742,21 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-23.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-23.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2034,7 +1765,8 @@
                                                     <div class="tf-card-box style-4">
                                                         <div class="author flex items-center">
                                                             <div class="avatar">
-                                                                <img src="assets/images/avatar/avatar-box-04.jpg" alt="Image">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
                                                             </div>
                                                             <div class="info">
                                                                 <span>Created by:</span>
@@ -2043,18 +1775,553 @@
                                                         </div>
                                                         <div class="card-media">
                                                             <a href="#">
-                                                                <img src="assets/images/box-item/card-item-24.jpg" alt="">
+                                                                <img src="assets/images/box-item/card-item-24.jpg"
+                                                                    alt="">
                                                             </a>
                                                             <span class="wishlist-button icon-heart"></span>
                                                         </div>
-                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine belt</a></h5>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
                                                         <div class="meta-info flex items-center justify-between">
                                                             <div>
                                                                 <span class="text-bid">Current Bid</span>
                                                                 <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
                                                             </div>
                                                             <div class="button-place-bid">
-                                                                <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Place Bid</span></a>
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="widget-content-inner">
+                                            <div class="wrap-box-card">
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-17.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-18.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-19.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-20.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-21.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-22.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-23.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-24.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-17.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-18.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-19.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-20.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-01.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-21.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-02.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-22.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-03.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-23.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-item">
+                                                    <div class="tf-card-box style-4">
+                                                        <div class="author flex items-center">
+                                                            <div class="avatar">
+                                                                <img src="assets/images/avatar/avatar-box-04.jpg"
+                                                                    alt="Image">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span>Created by:</span>
+                                                                <h6><a href="author-2.html">Marvin McKinney</a> </h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-media">
+                                                            <a href="#">
+                                                                <img src="assets/images/box-item/card-item-24.jpg"
+                                                                    alt="">
+                                                            </a>
+                                                            <span class="wishlist-button icon-heart"></span>
+                                                        </div>
+                                                        <h5 class="name"><a href="nft-detail-2.html">Dayco serpentine
+                                                                belt</a></h5>
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <div>
+                                                                <span class="text-bid">Current Bid</span>
+                                                                <h6 class="price gem"><i class="icon-gem"></i>0,34</h6>
+                                                            </div>
+                                                            <div class="button-place-bid">
+                                                                <a href="#" data-toggle="modal" data-target="#popup_bid"
+                                                                    class="tf-button"><span>Place Bid</span></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2246,9 +2513,39 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+
+
+                        @foreach($plans as $plan)
+                            <div class="content-tab-item m-3 p-3 d-flex flex-column"
+                                style="background-color:rgb(54, 46, 46); width:30%;">
+
+                                <h3 class="p-3">{{ $plan->name }}</h3>
+
+                                @if ($plan->discount_price == null)
+                                    <p class="p-3">{{ $plan->price }} EGP</p>
+                                @else
+                                    <del class="p-3" style="font-size: 15px">{{ $plan->price }} EGP</del>
+                                    <p class="p-3">{{ $plan->discount_price }} EGP</p>
+                                @endif
+
+                                <p class="p-3">{{ $plan->duration }} in weeks</p>
+                                <p class="p-3">{{ $plan->description }}</p>
+
+                                <form method="POST" action="{{ route('client.plans.pay', $plan->id) }}"
+                                    class="mt-auto text-start">
+                                    @csrf
+                                    <button  type="submit">Subscribe</button>
+                                </form>
+
+                            </div>
+                        @endforeach
+
+
+
+
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -2260,7 +2557,7 @@
     </div>
     <!-- /#wrapper -->
 
-        @include('client.main.wrapper')
+    @include('client.main.wrapper')
 
 
     <!-- Javascript -->
@@ -2270,4 +2567,5 @@
 
 
 <!-- Mirrored from themesflat.co/html/open9/market.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Dec 2025 18:04:22 GMT -->
+
 </html>

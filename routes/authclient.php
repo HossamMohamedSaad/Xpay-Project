@@ -23,37 +23,37 @@ use Illuminate\Support\Facades\Route;
     Route::post('client/login', [AuthenticatedSessionController::class, 'store'])
         ->name('client.check');
 
-    Route::get('client/forgot-password', [PasswordResetLinkController::class, 'create'])
-        ->name('client.password.request');
+    // Route::get('client/forgot-password', [PasswordResetLinkController::class, 'create'])
+    //     ->name('client.password.request');
 
-    Route::post('client/forgot-password', [PasswordResetLinkController::class, 'store'])
-        ->name('client.password.email');
+    // Route::post('client/forgot-password', [PasswordResetLinkController::class, 'store'])
+    //     ->name('client.password.email');
 
-    Route::get('client/reset-password/{token}', [NewPasswordController::class, 'create'])
-        ->name('client.password.reset');
+    // Route::get('client/reset-password/{token}', [NewPasswordController::class, 'create'])
+    //     ->name('client.password.reset');
 
-    Route::post('client/reset-password', [NewPasswordController::class, 'store'])
-        ->name('client.password.store');
+    // Route::post('client/reset-password', [NewPasswordController::class, 'store'])
+    //     ->name('client.password.store');
 // });
 
 Route::middleware('auth:client')->group(function () {
-    Route::get('client/verify-email', EmailVerificationPromptController::class)
-        ->name('client.verification.notice');
+    // Route::get('client/verify-email', EmailVerificationPromptController::class)
+    //     ->name('client.verification.notice');
 
-    Route::get('client/verify-email/{id}/{hash}', VerifyEmailController::class)
-        ->middleware(['signed', 'throttle:6,1'])
-        ->name('client.verification.verify');
+    // Route::get('client/verify-email/{id}/{hash}', VerifyEmailController::class)
+    //     ->middleware(['signed', 'throttle:6,1'])
+    //     ->name('client.verification.verify');
 
-    Route::post('client/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-        ->middleware('throttle:6,1')
-        ->name('client.verification.send');
+    // Route::post('client/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+    //     ->middleware('throttle:6,1')
+    //     ->name('client.verification.send');
 
-    Route::get('client/confirm-password', [ConfirmablePasswordController::class, 'show'])
-        ->name('client.password.confirm');
+    // Route::get('client/confirm-password', [ConfirmablePasswordController::class, 'show'])
+    //     ->name('client.password.confirm');
 
-    Route::post('client/confirm-password', [ConfirmablePasswordController::class, 'store']);
+    // Route::post('client/confirm-password', [ConfirmablePasswordController::class, 'store']);
 
-    Route::put('client/password', [PasswordController::class, 'update'])->name('password.update');
+    // Route::put('client/password', [PasswordController::class, 'update'])->name('password.update');
 
     Route::post('client/logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('client.logout');
