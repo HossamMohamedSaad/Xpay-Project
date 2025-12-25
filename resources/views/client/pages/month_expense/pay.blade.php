@@ -3,6 +3,7 @@
 
 <head>
     @include('client.main.header')
+    
 </head>
 <body class="body dashboard1">
 
@@ -33,43 +34,40 @@
                 @include('client.main.sidebar')
 
                 <div class="content-tabs">
-                    
-                    <div id="month_income" class="tabcontent {{ Route::currentRouteName() == 'client.month_income.add' ? 'active' : '' }}">
+
+                    <div id="month_expense" class="tabcontent {{ Route::currentRouteName() == 'client.month_expense.pay' ? 'active' : '' }}">
                         <div class="wrapper-content">
                             <div class="inner-content">
                                 
                                 <div class="widget-edit mb-30 profile">
                                     <div class="title">
-                                        <h4>Add New Monthly Income Source</h4>
+                                        <h4>Pay Monthly Expense</h4>
                                         <i class="icon-keyboard_arrow_up"></i>
                                     </div>
                                     <form   id="commentform" class="comment-form" novalidate="novalidate"
-                                            method="post" action="{{ route('client.month_income.create') }}">
+                                            method="post" action="{{ route('client.month_expense.confirmPay') }}">
                                         @csrf
                                         @method('POST')
+                                        <input type="hidden"   name="month_category_id" value="{{ $month_category->id }}" >
+                                        <input type="hidden"   name="amount" value="{{ $amount }}" >
+                                        <input type="hidden"   name="expense_category_id" value="{{ $expense_category_id }}" >
                                         <div class="flex gap30">
                                             <fieldset class="curency">
-                                                <label>Income Source</label>
-                                                <select class="select" name="income_source_id" id="curency">
-                                                    @foreach ($income_sources as $income_source )
-                                                    <option value="{{ $income_source->id }}">{{ $income_source->name }}</option>
+                                                <label>From Account</label>
+                                                <select class="select" name="account" id="curency">
+                                                    @foreach ($accounts as $account )
+                                                    <option value="{{ $account->id }}">{{ $account->name }}</option>
                                                     @endforeach
                                                     
                                                 </select>
                                             </fieldset>
-                                            <fieldset class="amount">
-                                                <label>amount </label>
-                                                <input type="text" id="amount" placeholder="Your Amount  " name="amount" tabindex="2" value="" aria-required="true" required>
-                                            </fieldset>
-                                            <fieldset class="period">
-                                                <label>period Per Weeks</label>
-                                                <input type="text" id="period" placeholder="Your period per weeks   " name="period" tabindex="2" value="" aria-required="true" required>
-                                            </fieldset>
+                                            
                                             
                                         </div>
                                         
+                                        
                                         <div class="btn-submit">
-                                            <button class="w242" type="submit">Save</button>
+                                            <button class="w242" type="submit">Pay</button>
                                         </div>
                                     </form>
                                 </div>

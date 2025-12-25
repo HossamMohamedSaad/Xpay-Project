@@ -41,7 +41,7 @@
                                 
                                 <div class="widget-edit mb-30 profile">
                                     <div class="title">
-                                        <h4>Update Monthly Income</h4>
+                                        <h4>Update Monthly Expense</h4>
                                         <i class="icon-keyboard_arrow_up"></i>
                                     </div>
                                     <form   id="commentform" class="comment-form" novalidate="novalidate"

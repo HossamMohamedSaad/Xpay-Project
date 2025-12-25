@@ -3,6 +3,7 @@
 
 <head>
     @include('client.main.header')
+    
 </head>
 <body class="body dashboard1">
 
@@ -33,24 +34,26 @@
                 @include('client.main.sidebar')
 
                 <div class="content-tabs">
-                    
-                    <div id="month_income" class="tabcontent {{ Route::currentRouteName() == 'client.month_income.add' ? 'active' : '' }}">
+
+                    <div id="month_income" class="tabcontent {{ Route::currentRouteName() == 'client.month_income.edit' ? 'active' : '' }}">
                         <div class="wrapper-content">
                             <div class="inner-content">
                                 
                                 <div class="widget-edit mb-30 profile">
                                     <div class="title">
-                                        <h4>Add New Monthly Income Source</h4>
+                                        <h4>Update Monthly Income</h4>
                                         <i class="icon-keyboard_arrow_up"></i>
                                     </div>
                                     <form   id="commentform" class="comment-form" novalidate="novalidate"
-                                            method="post" action="{{ route('client.month_income.create') }}">
+                                            method="post" action="{{ route('client.month_income.update') }}">
                                         @csrf
                                         @method('POST')
+                                        <input type="hidden"   name="id" value="{{ $month_income->id }}" >
                                         <div class="flex gap30">
                                             <fieldset class="curency">
                                                 <label>Income Source</label>
                                                 <select class="select" name="income_source_id" id="curency">
+                                                    <option value="{{ $month_income->income_source_id }}" selected>{{ $month_income->income_source->name }}</option>
                                                     @foreach ($income_sources as $income_source )
                                                     <option value="{{ $income_source->id }}">{{ $income_source->name }}</option>
                                                     @endforeach
@@ -59,14 +62,15 @@
                                             </fieldset>
                                             <fieldset class="amount">
                                                 <label>amount </label>
-                                                <input type="text" id="amount" placeholder="Your Amount  " name="amount" tabindex="2" value="" aria-required="true" required>
+                                                <input type="text" id="amount" value="{{ $month_income->amount }}" name="amount" tabindex="2" value="" aria-required="true" required>
                                             </fieldset>
                                             <fieldset class="period">
-                                                <label>period Per Weeks</label>
-                                                <input type="text" id="period" placeholder="Your period per weeks   " name="period" tabindex="2" value="" aria-required="true" required>
+                                                <label>period </label>
+                                                <input type="text" id="period" value="{{ $month_income->period }}" name="period" tabindex="2" value="" aria-required="true" required>
                                             </fieldset>
                                             
                                         </div>
+                                        
                                         
                                         <div class="btn-submit">
                                             <button class="w242" type="submit">Save</button>

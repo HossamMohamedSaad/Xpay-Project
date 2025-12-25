@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\client;
 use App\Http\Controllers\Controller;
+use App\Models\account;
+use App\Models\expenses;
 use App\Models\monthly_expense_category;
 use Illuminate\Http\Request;
 
@@ -59,6 +61,75 @@ class MonthlyExpenseCategoryController extends Controller
         $month_category = monthly_expense_category::findOrFail($id);
 
         return view('client.pages.month_expense.update', compact('expense_categories', 'month_category'));
+    }
+    public function pay($id)
+    {
+
+        $accounts = auth()->guard('client')->user()->accounts;
+        $month_category = monthly_expense_category::findOrFail($id);
+        $amount = $month_category->amount;
+        $expense_category_id = $month_category->expense_category_id;
+
+        return view('client.pages.month_expense.pay', get_defined_vars());
+    }
+    public function confirmPay(Request $request)
+    {
+        // dd($request->all());
+        $validator = validator()->make($request->all(), [
+            'account' => 'required|exists:accounts,id',
+            'expense_category_id' => 'required|exists:expense_categories,id',
+            'month_category_id' => 'required|exists:monthly_expense_categories,id',
+            'amount' => 'required|numeric',
+            
+        ],
+            [
+                'account.required' => ' account is required',
+                'account.exists' => 'account does not exist',
+                'expense_category_id.required' => 'month category is required',
+                'expense_category_id.exists' => 'month category does not exist',
+                'month_category_id.required' => 'month category is required',
+                'month_category_id.exists' => 'month category does not exist',
+                'amount.required' => 'amount is required',
+                'amount.numeric' => 'amount must be a number',
+
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first())->withInput();
+        }
+
+        if(account::findOrFail($request->account)->amount < $request->amount){
+            
+            return redirect()->route('client.month_expense.index')->with('error', 'account balance is insufficient to make this payment');
+        }
+        \DB::beginTransaction();
+        try {
+            
+
+            $expense = new expenses();
+            $expense->client_id = auth()->guard('client')->user()->id;
+            $expense->account_id = $request->account;
+            $expense->expense_category_id = $request->expense_category_id;
+            $expense->amount = $request->amount;
+            $expense->description = "Monthly Expense Payment";
+            $expense->save();
+
+            
+            $account = account::findOrFail($request->account);
+            $account->amount = $account->amount - $request->amount;
+            $account->save();
+            
+
+
+
+            \DB::commit();
+            return redirect()->route('client.month_expense.index')->with('success', 'expense paid successfully');
+        }catch(\Exception $e){
+           \DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
+        }
+        
     }
 
     public function update(Request $request)

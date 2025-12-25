@@ -8,6 +8,12 @@ class subscribtion extends Model
 {
     protected $guarded = ['id'];
     protected $table = 'subscribtions';
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date'   => 'date',
+        'is_active'  => 'boolean',
+        'is_cancelled' => 'boolean',
+    ];
     public function plan()
     {
         return $this->belongsTo(Plan::class, 'plan_id');

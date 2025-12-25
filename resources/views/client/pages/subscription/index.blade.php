@@ -7,20 +7,7 @@
 
 <body class="body dashboard1">
 
-    <!-- preload -->
-    {{-- <div class="preload preload-container">
-        <div class="middle">[]
-            <div class="bar bar1"></div>
-            <div class="bar bar2"></div>
-            <div class="bar bar3"></div>
-            <div class="bar bar4"></div>
-            <div class="bar bar5"></div>
-            <div class="bar bar6"></div>
-            <div class="bar bar7"></div>
-            <div class="bar bar8"></div>
-        </div>
-    </div> --}}
-    <!-- /preload -->
+    
 
 
 
@@ -36,17 +23,17 @@
                 <div class="content-tabs">
 
 
-                    <div id="income_source" class="tabcontent {{ Route::currentRouteName() == 'client.income_source.index' ? 'active' : '' }}">
+                    <div id="month_income" class="tabcontent {{ Route::currentRouteName() == 'client.subscription.index' ? 'active' : '' }}">
                         <div class="wrapper-content">
                             <div class="inner-content">
                                 <div class="action__body w-full mb-40">
                                     <div class="tf-tsparticles">
                                         <div id="ads" data-color="#161616" data-line="#000"></div>
                                     </div>
-                                    <h2 style="font-size: 25px;">Discover, create and edit your income sourses</h2>
+                                    <h2 style="font-size: 25px;">Discover, create and edit your Monthly income sourses</h2>
                                     <div class="flat-button flex" style="flex-direction: row-reverse;">
-                                        <a href="{{ route('client.income_source.add') }}"
-                                            class="tf-button style-2 h50 w190 mr-10">Add New Sourse<i
+                                        <a href="{{ route('client.plan.index') }}"
+                                            class="tf-button style-2 h50 w190 mr-10">Add New subscription<i
                                                 class="icon-arrow-up-right2"></i></a>
                                     </div>
                                     <div class="bg-home7">
@@ -120,7 +107,7 @@
                                     </div>
                                 </div>
                                 <div class="heading-section">
-                                    <h2 class="tf-title pb-30">Income Resource</h2>
+                                    <h2 class="tf-title pb-30" >Subscriptions</h2>
                                 </div>
 
 
@@ -131,23 +118,43 @@
                                             
                                             <div data-wow-delay="0s" class="wow fadeInUp col-12">
                                                 <div class="product-item offers">
-                                                    <h6><i class="icon-description"></i>Income Resource</h6>
+                                                    <h6><i class="icon-description"></i>Subscriptions</h6>
                                                     <i class="icon-keyboard_arrow_down"></i>
                                                     <div class="content">
                                                         <div class="table-heading">
-                                                            <div class="column">Name</div>
-                                                            <div class="column">Description</div>
+                                                            <div class="column">Plan</div>
+                                                            <div class="column">Start</div>
+                                                            <div class="column">End</div>
+                                                            <div class="column">Preice</div>
+                                                            <div class="column">Active</div>
+                                                            <div class="column">Canceled</div>
                                                             <div class="column">Actions</div>
                                                             
                                                         </div>
-                                                        @foreach ($sources as $source  )
+                                                        @foreach ($subscriptions as $subscription  )
                                                             
                                                         <div class="table-item">
-                                                            <div class="column"><h6 class="price gem">{{ $source->name }}</h6></div>
-                                                            <div class="column">{{ $source->description }}</div>
+                                                            <div class="column"><h6 class="price gem">{{ $subscription->plan?->name }}</h6></div>
+                                                            <div class="column">{{ $subscription->start_date }}</div>
+                                                            <div class="column">{{ $subscription->end_date }}</div>
+                                                            <div class="column">{{ $subscription->price }} {{ "EGP" }}</div>
+                                                            @if ($subscription->is_active)
+                                                                
+                                                                <div class="column">Active</div>
+                                                                @else
+                                                                <div class="column">Deactive</div>
+                                                                
+                                                            @endif
+                                                            @if ($subscription->is_cancelled)
+                                                                
+                                                                <div class="column">Canceled</div>
+                                                                @else
+                                                                <div class="column">Not Canceled</div>
+                                                            @endif
                                                             <div class="column">
-                                                                <a href="{{ route('client.income_source.edit', $source->id) }}" class="btn btn-primary">Edit</a>
-                                                                <a href="{{ route('client.income_source.delete', $source->id) }}" class="btn btn-danger">Delete</a>
+                                                                @if ($subscription->is_active)                                                                    
+                                                                    <a href="{{ route('client.subscription.cancel', $subscription->id) }}" class="btn btn-danger">Cancel</a>
+                                                                @endif
                                                             </div>
                                                             
                                                         </div>

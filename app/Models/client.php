@@ -59,4 +59,8 @@ class client extends Authenticatable
     {
         return $this->hasMany(transaction::class, 'client_id');
     }
+    public function statistic_income()
+    {
+        return $this->hasMany(statistic_income::class);
+    }
 }

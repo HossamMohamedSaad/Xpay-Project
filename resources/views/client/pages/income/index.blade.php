@@ -43,8 +43,8 @@
                                     <div class="tf-tsparticles">
                                         <div id="ads" data-color="#161616" data-line="#000"></div>
                                     </div>
-                                    <h2>Discover, create and edit your Monthly income </h2>
-                                    <div class="flat-button flex">
+                                    <h2 style="font-size: 25px;">Discover, create and edit your Monthly income </h2>
+                                    <div class="flat-button flex" style="flex-direction: row-reverse;">
                                         <a href="{{ route('client.income.add') }}"
                                             class="tf-button style-2 h50 w190 mr-10">Add New Income<i
                                                 class="icon-arrow-up-right2"></i></a>
@@ -139,6 +139,7 @@
                                                             <div class="column">Account</div>
                                                             <div class="column">Amount</div>
                                                             <div class="column">Date</div>
+                                                            <div class="column">Description</div>
                                                             <div class="column">Actions</div>
                                                             
                                                         </div>
@@ -153,6 +154,7 @@
                                                             <div class="column">{{ $income->account?->name }}</div>
                                                             <div class="column">{{ $income->amount }}</div>
                                                             <div class="column">{{ $income->created_at }}</div>
+                                                            <div class="column">{{ $income->description }}</div>
                                                             
                                                             @if ($income->income_source == null)
                                                             

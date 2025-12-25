@@ -43,8 +43,8 @@
                                     <div class="tf-tsparticles">
                                         <div id="ads" data-color="#161616" data-line="#000"></div>
                                     </div>
-                                    <h2>Discover, create and edit your Monthly Expense Category</h2>
-                                    <div class="flat-button flex">
+                                    <h2 style="font-size: 25px;">Discover, create and edit your Monthly Expense Category</h2>
+                                    <div class="flat-button flex " style="flex-direction: row-reverse;">
                                         <a href="{{ route('client.month_expense.add') }}"
                                             class="tf-button style-2 h50 w190 mr-10">Add New Category<i
                                                 class="icon-arrow-up-right2"></i></a>
@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                                 <div class="heading-section">
-                                    <h2 class="tf-title pb-30">Monthly Expense Category</h2>
+                                    <h2 class="tf-title pb-30" style="font-size: 25px;">Monthly Expense Category</h2>
                                 </div>
 
 
@@ -148,6 +148,7 @@
                                                             <div class="column">{{ $source->amount }}</div>
                                                             <div class="column">{{ $source->period }}</div>
                                                             <div class="column">
+                                                                <a href="{{ route('client.month_expense.pay', $source->id) }}" class="btn btn-warning">pay</a>
                                                                 <a href="{{ route('client.month_expense.edit', $source->id) }}" class="btn btn-primary">Edit</a>
                                                                 <a href="{{ route('client.month_expense.delete', $source->id) }}" class="btn btn-danger">Delete</a>
                                                             </div>

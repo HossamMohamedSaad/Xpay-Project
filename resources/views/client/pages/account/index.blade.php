@@ -28,6 +28,7 @@
         <div id="page" class="market-page">
             {{-- header --}}
             @include('client.main.head')
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
             <div class="flat-tabs">
                 {{-- sidebar --}}
@@ -43,8 +44,8 @@
                                     <div class="tf-tsparticles">
                                         <div id="tsparticles1" data-color="#161616" data-line="#000"></div>
                                     </div>
-                                    <h2>Add and Edit your account</h2>
-                                    <div class="flat-button flex">
+                                    <h2 style="font-size: 25px;">Add and Edit your account</h2>
+                                    <div class="flat-button flex" style="flex-direction: row-reverse;">
 
                                         <a href="{{ route('client.account.add') }}"
                                             class="tf-button style-2 h50 w190 mr-10">Add New Account<i
@@ -135,26 +136,26 @@
                                                     <div class="tf-card-box style-1">
                                                         
                                                         <h5 class="name">{{ $account->name }}</h5>
-                                                        <div class="d-flex gap-2" style="justify-content: space-between;">
-                                                            <form action="{{ route('client.account.delete') }}" method="POST">
+                                                        <div class="meta-info flex items-center justify-between">
+                                                            <span class="text-bid">Current</span>
+                                                            <h6 class="price gem">${{ $account->amount }}</h6>
+                                                        </div>
+                                                        <div class="divider p-1" style="margin-top: 5px; margin-bottom: 10px;"></div>
+                                                        <div class="d-flex gap-2 " style="" >
+                                                            <form action="{{ route('client.account.delete') }}" method="POST"style="margin-right: 10px">
                                                                 @csrf
                                                                 <input type="hidden" name="id" value="{{ $account->id }}">
-                                                                <button type="submit"style="background-color: #cb2e2e">Delete</button>
+                                                                <button type="submit"style="background-color: #cb2e2e; border-radius: 50%; padding: 13.5px;" ><i class="fa fa-trash" aria-hidden="true"></i></button>
                                                             </form>
 
                                                             <form action="{{ route('client.account.edit') }}" method="POST">
                                                                 @csrf
                                                                 <input type="hidden" name="id" value="{{ $account->id }}">
-                                                                
-                                                                <button type="submit" >Edit</button>
+                                    
+                                                                <button type="submit" style="border-radius: 50%; padding: 13.5px;"><i class="fa-regular fa-pen-to-square"></i></button>
                                                             </form>
                                                         </div>
                                                         
-                                                        <div class="divider"></div>
-                                                        <div class="meta-info flex items-center justify-between">
-                                                            <span class="text-bid">Current</span>
-                                                            <h6 class="price gem">${{ $account->amount }}</h6>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 @endforeach

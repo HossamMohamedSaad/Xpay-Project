@@ -43,12 +43,16 @@
                                     <div class="tf-tsparticles">
                                         <div id="ads" data-color="#161616" data-line="#000"></div>
                                     </div>
-                                    <h2>Discover, create and edit your expense </h2>
-                                    <div class="flat-button flex">
+                                    <h2 style="font-size: 25px;">Discover, create and edit your expense </h2>
+                                    <div class="flat-button flex " style="flex-direction: row-reverse;">
                                         
                                                 <a class="tf-button style-2 h50 w190 mr-10"
-                                                    href="{{ route('client.report.export', request()->query()) }}">
-                                                    Export Excel
+                                                    href="{{ route('client.report.export.income', request()->query()) }}">
+                                                    Export Income Excel
+                                                    <i class="icon-arrow-up-right2"></i></a>
+                                                <a class="tf-button style-2 h50 w190 mr-10"
+                                                    href="{{ route('client.report.export.expense', request()->query()) }}">
+                                                    Export Expense Excel
                                                     <i class="icon-arrow-up-right2"></i></a>
                                     </div>
                                     <div class="bg-home7">
@@ -139,7 +143,7 @@
                                             
                                             <div data-wow-delay="0s" class="wow fadeInUp col-12">
                                                 <div class="product-item offers">
-                                                    <h6><i class="icon-description"></i>Report</h6>
+                                                    <h6><i class="icon-description"></i>Report Income</h6>
                                                     <i class="icon-keyboard_arrow_down"></i>
                                                     <div class="content">
                                                         <div class="table-heading">
@@ -147,39 +151,76 @@
                                                             <div class="column">Account</div>
                                                             <div class="column">Amount</div>
                                                             <div class="column">Date</div>
-                                                            {{-- <div class="column"> type</div> --}}
-                                                            {{-- @dd($rows) --}}
+                                                            
                                                         </div>
-                                                        @if ($rows == Null)
+                                                        @if ($incomes == Null)
                                                             
                                                         <div class="column " style="column-span: 100%;">No Data</div>
                                                         @else
                                                             
-                                                        @foreach ($rows as $row  )
+                                                        @foreach ($incomes as $income  )
                                                             
-                                                        <div class="table-item">
-                                                            @if (is_null($row->source_id))
-                                                                <div class="column"><h6 class="price gem">EDIT BY USER</h6></div>
-                                                            @else
-                                                                <div class="column"><h6 class="price gem">{{ $row->source_name }}</h6></div>
-                                                            @endif
-                                                            
-                                                            <div class="column">{{ $row->account_name ?? '-' }}</div>
-                                                            <div class="column"> {{ $row->amount }} EGP</div>
-                                                            <div class="column">{{ \Carbon\Carbon::parse($row->created_at)->format('d/m/Y H:i')  }}</div>
-                                    
-                                                            @if($row->type === 'income')
-                                                                <span class="badge bg-success " style="font-size:12px ;">Income</span>
-                                                            @else
-                                                                <span class="badge bg-danger" style="font-size:12px ;">Expense</span>
-                                                            @endif
-                                                                                                                   
-                                                            
-                                                        </div>
+                                                            <div class="table-item">
+                                                                @if (is_null($income->income_source_id))
+                                                                    <div class="column"><h6 class="price gem">EDIT BY USER</h6></div>
+                                                                @else
+                                                                    <div class="column"><h6 class="price gem">{{ $income->income_source->name }}</h6></div>
+                                                                @endif
+                                                                
+                                                                <div class="column">{{ $income->account->name ?? '-' }}</div>
+                                                                <div class="column"> {{ $income->amount }} EGP</div>
+                                                                <div class="column">{{ \Carbon\Carbon::parse($income->created_at)->format('d/m/Y H:i')  }}</div>
+                                        
+                                                                    {{-- <span class="badge bg-success " style="font-size:12px ;">Income</span> --}}
+                                                                                                                    
+                                                                
+                                                            </div>
                                                         @endforeach
                                                         @endif
                                                         
                                                     </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div data-wow-delay="0s" class="wow fadeInUp col-12">
+                                                <div class="product-item offers">
+                                                    <h6><i class="icon-description"></i>Report Expense</h6>
+                                                    <i class="icon-keyboard_arrow_down"></i>
+                                                    <div class="content">
+                                                        <div class="table-heading">
+                                                            <div class="column"> source</div>
+                                                            <div class="column">Account</div>
+                                                            <div class="column">Amount</div>
+                                                            <div class="column">Date</div>
+                                                            
+                                                        </div>
+                                                        @if ($expenses == Null)
+                                                            
+                                                        <div class="column " style="column-span: 100%;">No Data</div>
+                                                        @else
+                                                            
+                                                        @foreach ($expenses as $expense  )
+                                                            
+                                                            <div class="table-item">
+                                                                @if (is_null($expense->expense_category_id))
+                                                                    <div class="column"><h6 class="price gem">EDIT BY USER</h6></div>
+                                                                @else
+                                                                    <div class="column"><h6 class="price gem">{{ $expense->expense_category->name }}</h6></div>
+                                                                @endif
+                                                                
+                                                                <div class="column">{{ $expense->account->name ?? '-' }}</div>
+                                                                <div class="column"> {{ $expense->amount }} EGP</div>
+                                                                <div class="column">{{ \Carbon\Carbon::parse($expense->created_at)->format('d/m/Y H:i')  }}</div>
+                                        
+                                                                    {{-- <span class="badge bg-danger " style="font-size:12px ;">expense</span> --}}
+                                                                                                                    
+                                                                
+                                                            </div>
+                                                        @endforeach
+                                                        @endif
+                                                        
+                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                             

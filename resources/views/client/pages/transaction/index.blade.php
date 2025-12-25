@@ -39,12 +39,12 @@
                     <div id="transaction" class="tabcontent {{ Route::currentRouteName() == 'client.transaction.index' ? 'active' : '' }}">
                         <div class="wrapper-content">
                             <div class="inner-content">
-                                <div class="action__body w-full mb-40">
+                                <div class="action__body w-full mb-60">
                                     <div class="tf-tsparticles">
                                         <div id="ads" data-color="#161616" data-line="#000"></div>
                                     </div>
-                                    <h2>Discover, create and edit your Transactions between Accounts</h2>
-                                    <div class="flat-button flex">
+                                    <h2 style="font-size: 25px;">Discover, create and edit your Transactions between Accounts</h2>
+                                    <div class="flat-button flex" style="flex-direction: row-reverse;">
                                         <a href="{{ route('client.transaction.add') }}"
                                             class="tf-button style-2 h50 w190 mr-10">Add New Transaction<i
                                                 class="icon-arrow-up-right2"></i></a>

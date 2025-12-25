@@ -43,8 +43,8 @@
                                     <div class="tf-tsparticles">
                                         <div id="ads" data-color="#161616" data-line="#000"></div>
                                     </div>
-                                    <h2>Discover, create and edit your expense </h2>
-                                    <div class="flat-button flex">
+                                    <h2 style="font-size: 25px;">Discover, create and edit your expense </h2>
+                                    <div class="flat-button flex" style="flex-direction: row-reverse;">
                                         <a href="{{ route('client.expense.add') }}"
                                             class="tf-button style-2 h50 w190 mr-10">Add New expense<i
                                                 class="icon-arrow-up-right2"></i></a>
@@ -139,6 +139,7 @@
                                                             <div class="column">Account</div>
                                                             <div class="column">Amount</div>
                                                             <div class="column">Date</div>
+                                                            <div class="column">Description</div>
                                                             <div class="column">Actions</div>
                                                             
                                                         </div>
@@ -159,6 +160,7 @@
                                                             <div class="column">{{ $expense->account?->name }}</div>
                                                             <div class="column">{{ $expense->amount }}</div>
                                                             <div class="column">{{ $expense->created_at }}</div>
+                                                            <div class="column">{{ $expense->description }}</div>
                                                              @if ($expense->expense_category == null)
                                                                 
                                                              <div class="column">

@@ -7,10 +7,12 @@ use App\Http\Controllers\client\IncomeController;
 use App\Http\Controllers\client\IncomeSourceController;
 use App\Http\Controllers\client\MonthlyExpenseCategoryController;
 use App\Http\Controllers\client\MonthlyIncomeSourceController;
-use App\Http\Controllers\client\PaymentController;
+use App\Http\Controllers\client\PaymobController;
 use App\Http\Controllers\client\PlansController;
 use App\Http\Controllers\client\TransactionController;
-use App\Http\Controllers\ReportController;
+use App\Http\Controllers\client\ReportController;
+use App\Http\Controllers\client\SubscribtionController;
+use Illuminate\Support\Facades\Route;
 
 Route::prefix('client/wallet')
     ->name('client.wallet.')
@@ -136,6 +138,10 @@ Route::prefix('client/month_income')
         Route::get('/destroy/{id}', [MonthlyIncomeSourceController::class, 'destroy'])->name('delete');
         Route::get('/edit/{id}', [MonthlyIncomeSourceController::class, 'edit'])->name('edit');
         Route::post('/update', [MonthlyIncomeSourceController::class, 'update'])->name('update');
+        Route::post('/confirmGet', [MonthlyIncomeSourceController::class, 'confirmGet'])->name('confirmGet');
+        Route::get('/pay/{id}', [MonthlyIncomeSourceController::class, 'pay'])->name('pay');
+
+
     });
 Route::prefix('client/month_expense')
     ->name('client.month_expense.')
@@ -147,7 +153,9 @@ Route::prefix('client/month_expense')
         Route::post('/create', [MonthlyExpenseCategoryController::class, 'create'])->name('create');
         Route::get('/destroy/{id}', [MonthlyExpenseCategoryController::class, 'destroy'])->name('delete');
         Route::get('/edit/{id}', [MonthlyExpenseCategoryController::class, 'edit'])->name('edit');
+        Route::get('/pay/{id}', [MonthlyExpenseCategoryController::class, 'pay'])->name('pay');
         Route::post('/update', [MonthlyExpenseCategoryController::class, 'update'])->name('update');
+        Route::post('/confirmPay', [MonthlyExpenseCategoryController::class, 'confirmPay'])->name('confirmPay');
     });
 Route::prefix('client/income')
     ->name('client.income.')
@@ -174,35 +182,51 @@ Route::prefix('client/expense')
         Route::post('/update', [ExpensesController::class, 'update'])->name('update');
     });
     
-    
-    
-    Route::middleware(['auth:client'])->group(function () {
-        Route::post('/plans/{plan}/pay', [PaymentController::class, 'startPayment'])
-            ->name('client.plans.pay');
-    
-        // optional: success page
-        Route::get('/payment/success', [PaymentController::class, 'successPage'])
-            ->name('client.payment.success');
-    
-        Route::get('/payment/failed', [PaymentController::class, 'failedPage'])
-            ->name('client.payment.failed');
-    });
-    
-    // Paymob callbacks (NO auth middleware)
-    Route::post('/paymob/processed', [PaymentController::class, 'processedCallback'])
-        ->name('paymob.processed');
-    
-    Route::get('/paymob/response', [PaymentController::class, 'responseCallback'])
-        ->name('paymob.response');
-
-    Route::prefix('client/plan')
-        ->name('client.plan.')
-        ->group(function () {
-            Route::get('/index',[PlansController::class, 'index'])->name('index'); 
-        });
     Route::prefix('client/report')
         ->name('client.report.')
         ->group(function () {
             Route::get('/index',[ReportController::class, 'index'])->name('index'); 
-            Route::get('/export', [ReportController::class, 'export'])->name('export');
+            // Route::get('/export', [ReportController::class, 'export'])->name('export');
+            Route::get('/export/income',  [ReportController::class, 'exportIncome'])->name('export.income');
+            Route::get('/export/expense', [ReportController::class, 'exportExpense'])->name('export.expense');
+
         });
+    
+        Route::prefix('client/plan')
+            ->name('client.plan.')
+            ->group(function () {
+                Route::get('/index',[PlansController::class, 'index'])->name('index'); 
+            });
+        Route::prefix('client/subscription')
+            ->name('client.subscription.')
+            ->group(function () {
+                Route::get('/index',[SubscribtionController::class, 'index'])->name('index'); 
+                Route::get('/cancel/{id}',action: [SubscribtionController::class, 'cancel'])->name('cancel'); 
+            });
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Route::middleware(['auth:client'])->prefix('client')->name('client.')->group(function () {
+    // زر Subscribe في صفحة الخطط
+    Route::post('/plans/{plan}/pay', [PaymobController::class, 'pay'])->name('plans.pay');
+
+    // (اختياري) صفحة تعرض نتيجة الدفع
+    Route::get('/payment/result', [PaymobController::class, 'result'])->name('payment.result');
+});
+
+// لازم دول يبقوا Public (بدون auth) عشان Paymob يقدر يضربهم
+Route::get('/paymob/return', [PaymobController::class, 'paymobReturn'])->name('paymob.return');
+Route::post('/paymob/processed', [PaymobController::class, 'processedCallback'])->name('paymob.processed');
+// Route::get('/paymob/processed', function () { return redirect('/client/plan/index');});
+
+

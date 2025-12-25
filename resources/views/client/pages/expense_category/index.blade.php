@@ -43,8 +43,8 @@
                                     <div class="tf-tsparticles">
                                         <div id="ads" data-color="#161616" data-line="#000"></div>
                                     </div>
-                                    <h2>Discover, create and edit your Expense Category </h2>
-                                    <div class="flat-button flex">
+                                    <h2 style="font-size: 25px;">Discover, create and edit your Expense Category </h2>
+                                    <div class="flat-button flex" style="flex-direction: row-reverse;">
                                         <a href="{{ route('client.expense_category.add') }}"
                                             class="tf-button style-2 h50 w190 mr-10">Add New Sourse<i
                                                 class="icon-arrow-up-right2"></i></a>

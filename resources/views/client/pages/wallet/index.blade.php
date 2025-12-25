@@ -37,12 +37,12 @@
                     <div id="wallet" class="tabcontent {{ Route::currentRouteName() == 'client.wallet.index' ? 'active' : '' }}">
                         <div class="wrapper-content">
                             <div class="inner-content">
-                                <div class="action__body w-full mb-40">
+                                <div class="action__body w-full mb-4">
                                     <div class="tf-tsparticles">
                                         <div id="tsparticles6" data-color="#161616" data-line="#000"></div>
                                     </div>
-                                    <h2>Discover, create and sell your own NFT</h2>
-                                    <div class="flat-button flex">
+                                    <h2 style="font-size: 25px;">Discover, create and sell your own NFT</h2>
+                                    <div class="flat-button flex" style="flex-direction: row-reverse;">
                                         <a href="#" class="tf-button style-2 h50 w190 mr-10">Explore now<i class="icon-arrow-up-right2"></i></a>
                                         <a href="#" class="tf-button style-2 h50 w230">Create your first NFT<i class="icon-arrow-up-right2"></i></a>
                                     </div>

@@ -24,5 +24,9 @@ class income_source extends Model
     {
         return $this->hasMany(monthly_report::class, 'top_income_source_id');
     }
+    public function statistic_income()
+    {
+        return $this->hasMany(statistic_income::class);
+    }
 
 }

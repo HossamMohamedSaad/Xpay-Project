@@ -5,6 +5,8 @@ namespace App\Console\Commands;
 use App\Models\Client;
 use App\Models\expense_category;
 use App\Models\expenses;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\income;
 use App\Models\income_source;
 use App\Models\monthly_report;
@@ -16,110 +18,195 @@ class CreateMonthlyReport extends Command
 
     protected $description = 'Create monthly report rows for every client (if not exists)';
 
-    public function topIncomeSource($client_id, $month, $year)
+
+        
+    public function topIncomeSource($clientId, $month, $year)
     {
-        $topIncomeSourceId = null;
-        $maxIncome = 0;
-
-        $income_sources = income_source::where('client_id', $client_id)->get();
-        if($income_sources == null ) 
-        {
-            return null;
-        }
-        foreach ($income_sources as $income_source) {
-            $income = income::where('income_source_id', $income_source->id)
-            ->whereMonth('created_at', $month)
-            ->whereYear('created_at', $year)
-            ->sum('amount');
-
-            if ($income >= $maxIncome) {
-                $maxIncome = $income;
-                $topIncomeSourceId = $income_source->id;
-            }
-        }
-         return $topIncomeSourceId; 
+        return DB::table('incomes')
+            ->join('income_sources', 'incomes.income_source_id', '=', 'income_sources.id')
+            ->where('income_sources.client_id', $clientId)
+            ->whereMonth('incomes.created_at', $month)
+            ->whereYear('incomes.created_at', $year)
+            ->selectRaw('incomes.income_source_id, SUM(incomes.amount) as total')
+            ->groupBy('incomes.income_source_id')
+            ->orderByDesc('total')
+            ->value('income_source_id'); // returns id or null
     }
 
-
-    public function topExpenseCategory($client_id, $month, $year)
+    public function topExpenseCategory($clientId, $month, $year)
     {
-        $topExpenseCategoryId = null;
-        $maxExpense = 0;
-
-        $expense_cats = expense_category::where('client_id', $client_id)->get();
-        if($expense_cats == null ) 
-        {
-            return null;
-        }
-        foreach ($expense_cats as $expense_cat) {
-            $expense = expenses::where('expense_category_id', $expense_cat->id)
-            ->whereMonth('created_at', $month)
-            ->whereYear('created_at', $year)
-            ->sum('amount');
-
-            if ($expense >= $maxExpense) {
-                $maxExpense = $expense;
-                $topExpenseCategoryId = $expense_cat->id;
-            }
-        }
-         return $topExpenseCategoryId; 
+        return DB::table('expenses')
+            ->join('expense_categories', 'expenses.expense_category_id', '=', 'expense_categories.id')
+            ->where('expense_categories.client_id', $clientId)
+            ->whereMonth('expenses.created_at', $month)
+            ->whereYear('expenses.created_at', $year)
+            ->selectRaw('expenses.expense_category_id, SUM(expenses.amount) as total')
+            ->groupBy('expenses.expense_category_id')
+            ->orderByDesc('total')
+            ->value('expense_category_id');
     }
-    public function totalIncome($client_id, $month, $year)
+
+    public function totalIncome($clientId, $month, $year)
     {
-        $totalIncome = 0;
-        $income_sources = income_source::where('client_id', $client_id)->get();
-        if($income_sources == null ) 
-        {
-            return 0;
-        }
-        foreach ($income_sources as $income_source) {
-            $totalIncome += income::where('income_source_id', $income_source->id)
-            ->whereMonth('created_at', $month)
-            ->whereYear('created_at', $year)
-            ->sum('amount');
-        }
-         return $totalIncome;
+        return (int) DB::table('incomes')
+            ->join('income_sources', 'incomes.income_source_id', '=', 'income_sources.id')
+            ->where('income_sources.client_id', $clientId)
+            ->whereMonth('incomes.created_at', $month)
+            ->whereYear('incomes.created_at', $year)
+            ->sum('incomes.amount');
     }
-    public function totalExpense($client_id, $month, $year)
+
+    public function totalExpense($clientId, $month, $year)
     {
-        $totalExpense = 0;
-        $expense_cats = expense_category::where('client_id', $client_id)->get();
-        if($expense_cats == null ) 
-        {
-            return 0;
-        }
-        foreach ($expense_cats as $expense_cat) {
-            $totalExpense += expenses::where('expense_category_id', $expense_cat->id)
-            ->whereMonth('created_at', $month)
-            ->whereYear('created_at', $year)
-            ->sum('amount');
-        }
-         return $totalExpense;
+        return (int) DB::table('expenses')
+            ->join('expense_categories', 'expenses.expense_category_id', '=', 'expense_categories.id')
+            ->where('expense_categories.client_id', $clientId)
+            ->whereMonth('expenses.created_at', $month)
+            ->whereYear('expenses.created_at', $year)
+            ->sum('expenses.amount');
     }
 
     public function handle()
     {
+        // default: previous month (better for monthly reports)
+        $target = now()->subMonth();
 
-        $month = (int) ($this->option('month') ?: now()->month);
-        $year = (int) ($this->option('year') ?: now()->year);
-        Client::select('id')->chunkById(10000, function ($clients) use ($month, $year) {
+        $month = (int) ($this->option('month') ?: $target->month);
+        $year  = (int) ($this->option('year')  ?: $target->year);
+
+        Client::select('id')->chunkById(1000, function ($clients) use ($month, $year) {
             foreach ($clients as $client) {
 
-                monthly_report::firstOrCreate(
+                $totalIncome  = $this->totalIncome($client->id, $month, $year);
+                $totalExpense = $this->totalExpense($client->id, $month, $year);
+
+                monthly_report::updateOrCreate(
                     ['client_id' => $client->id, 'month' => $month, 'year' => $year],
                     [
-                        'top_income_source_id' => $this->topIncomeSource($client->id, $month, $year),
-                        'top_expense_category_id' => $this->topExpenseCategory($client->id, $month, $year),
-                        'total_income' => $this->totalIncome($client->id, $month, $year),
-                        'total_expense' => $this->totalExpense($client->id, $month, $year),
-                        'net_balance' => $this->totalIncome($client->id, $month, $year) - $this->totalExpense($client->id, $month, $year),
+                        'top_income_source_id'     => $this->topIncomeSource($client->id, $month, $year),
+                        'top_expense_category_id'  => $this->topExpenseCategory($client->id, $month, $year),
+                        'total_income'             => $totalIncome,
+                        'total_expense'            => $totalExpense,
+                        'net_balance'              => $totalIncome - $totalExpense,
                     ]
                 );
             }
         });
 
-        $this->info("Monthly reports ensured for all clients: {$year}-{$month}");
+        $this->info("Monthly reports updated for all clients: {$year}-{$month}");
 
         return self::SUCCESS;
     }
+
+
+    // public function topIncomeSource($client_id, $month, $year)
+    // {
+    //     $topIncomeSourceId = null;
+    //     $maxIncome = 0;
+
+    //     $income_sources = income_source::where('client_id', $client_id)->get();
+    //     if($income_sources == null ) 
+    //     {
+    //         return null;
+    //     }
+    //     foreach ($income_sources as $income_source) {
+    //         $income = income::where('income_source_id', $income_source->id)
+    //         ->whereMonth('created_at', $month)
+    //         ->whereYear('created_at', $year)
+    //         ->sum('amount');
+
+    //         if ($income >= $maxIncome) {
+    //             $maxIncome = $income;
+    //             $topIncomeSourceId = $income_source->id;
+    //         }
+    //     }
+    //      return $topIncomeSourceId; 
+    // }
+
+
+    // public function topExpenseCategory($client_id, $month, $year)
+    // {
+    //     $topExpenseCategoryId = null;
+    //     $maxExpense = 0;
+
+    //     $expense_cats = expense_category::where('client_id', $client_id)->get();
+    //     if($expense_cats == null ) 
+    //     {
+    //         return null;
+    //     }
+    //     foreach ($expense_cats as $expense_cat) {
+    //         $expense = expenses::where('expense_category_id', $expense_cat->id)
+    //         ->whereMonth('created_at', $month)
+    //         ->whereYear('created_at', $year)
+    //         ->sum('amount');
+
+    //         if ($expense >= $maxExpense) {
+    //             $maxExpense = $expense;
+    //             $topExpenseCategoryId = $expense_cat->id;
+    //         }
+    //     }
+    //      return $topExpenseCategoryId; 
+    // }
+    // public function totalIncome($client_id, $month, $year)
+    // {
+    //     $totalIncome = 0;
+    //     $income_sources = income_source::where('client_id', $client_id)->get();
+    //     if($income_sources == null ) 
+    //     {
+    //         return 0;
+    //     }
+    //     foreach ($income_sources as $income_source) {
+    //         $totalIncome += income::where('income_source_id', $income_source->id)
+    //         ->whereMonth('created_at', $month)
+    //         ->whereYear('created_at', $year)
+    //         ->sum('amount');
+    //     }
+    //      return $totalIncome;
+    // }
+    // public function totalExpense($client_id, $month, $year)
+    // {
+    //     $totalExpense = 0;
+    //     $expense_cats = expense_category::where('client_id', $client_id)->get();
+    //     if($expense_cats == null ) 
+    //     {
+    //         return 0;
+    //     }
+    //     foreach ($expense_cats as $expense_cat) {
+    //         $totalExpense += expenses::where('expense_category_id', $expense_cat->id)
+    //         ->whereMonth('created_at', $month)
+    //         ->whereYear('created_at', $year)
+    //         ->sum('amount');
+    //     }
+    //      return $totalExpense;
+    // }
+
+    // public function handle()
+    // {
+
+    //     // $month = (int) ($this->option('month') ?: now()->month);
+    //     // $year = (int) ($this->option('year') ?: now()->year);
+    //     $target = now()->startOfMonth()->subDay(); // آخر يوم في الشهر اللي فات
+
+    //     $month = (int) ($this->option('month') ?: $target->month);
+    //     $year  = (int) ($this->option('year')  ?: $target->year);
+    //     Client::select('id')->chunkById(10000, function ($clients) use ($month, $year) {
+    //         foreach ($clients as $client) {
+
+    //             monthly_report::firstOrCreate(
+    //                 ['client_id' => $client->id, 'month' => $month, 'year' => $year],
+    //                 [
+    //                     'top_income_source_id' => $this->topIncomeSource($client->id, $month, $year),
+    //                     'top_expense_category_id' => $this->topExpenseCategory($client->id, $month, $year),
+    //                     'total_income' => $this->totalIncome($client->id, $month, $year),
+    //                     'total_expense' => $this->totalExpense($client->id, $month, $year),
+    //                     'net_balance' => $this->totalIncome($client->id, $month, $year) - $this->totalExpense($client->id, $month, $year),
+    //                 ]
+    //             );
+    //         }
+    //     });
+
+    //     $this->info("Monthly reports ensured for all clients: {$year}-{$month}");
+
+    //     return self::SUCCESS;
+    // }
 }
